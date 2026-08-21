@@ -1,0 +1,8 @@
+# Copyright (c) 2022 Amazon.com, Inc. or its affiliates.  All rights reserved.
+#
+# PROPRIETARY/CONFIDENTIAL. USE IS SUBJECT TO LICENSE TERMS.
+
+service read_diskstat /system/system_ext/bin/read_diskstat.sh
+    group root shell
+    oneshot
+    disabled

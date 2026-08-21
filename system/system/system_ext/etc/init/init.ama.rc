@@ -1,0 +1,4 @@
+on post-fs-data
+     # Create ama directory to save device record
+     mkdir /data/misc/ama/
+     chown system system /data/misc/ama

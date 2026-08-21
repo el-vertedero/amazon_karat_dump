@@ -1,0 +1,34 @@
+on init && property:ro.vendor.product.model_trigger=AFTKM
+     setprop ro.product.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.vendor.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.product.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.system.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.system_ext.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.odm.model ${ro.vendor.product.model_trigger}
+
+on init && property:ro.vendor.product.model_trigger=AFTKRT
+     setprop ro.product.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.vendor.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.product.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.system.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.system_ext.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.odm.model ${ro.vendor.product.model_trigger}
+
+on init && property:ro.vendor.product.model_trigger=AFTMA08C15
+     setprop ro.product.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.vendor.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.product.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.system.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.system_ext.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.odm.model ${ro.vendor.product.model_trigger}
+
+on init && property:ro.vendor.product.model_trigger=AFTKA
+     setprop ro.product.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.vendor.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.product.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.system.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.system_ext.model ${ro.vendor.product.model_trigger}
+     setprop ro.product.odm.model ${ro.vendor.product.model_trigger}
+
+on boot
+     setprop service.adb.tcp.port 5555

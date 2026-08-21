@@ -1,0 +1,15 @@
+#
+# Copyright (c) 2026 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+on property:sys.amzn_sensors_dynamic_persistence_enable=0
+    stop amznsensorsdynamicpersistenced
+
+service amznsensorsdynamicpersistenced /system/system_ext/bin/amzn_sensors_dynamic_persistenced
+    class main
+    user system
+    group system
+    interface aidl amznsensorsdynamicpersistenced
+    disabled
+

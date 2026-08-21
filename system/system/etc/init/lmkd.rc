@@ -1,0 +1,22 @@
+#
+# Portions of this file are copyright (c) 2023 - 2024 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PORTIONS OF THIS FILE ARE AMAZON PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+# Amazon modifications are indicated by [Metatag(*) comments].
+#
+service lmkd /system/bin/lmkd
+    class core
+    user lmkd
+    group lmkd system readproc
+    capabilities DAC_OVERRIDE KILL IPC_LOCK SYS_NICE SYS_RESOURCE
+    critical
+    socket lmkd seqpacket+passcred 0660 system system
+    writepid /dev/cpuset/system-background/tasks
+
+on property:lmkd.reinit=1
+    exec_background /system/bin/lmkd --reinit
+
+# Metatag(perf_improvements.aosp) begin
+on property:sys.lmk.use_remote_config=true
+    setprop lmkd.reinit 1
+# Metatag(perf_improvements.aosp) end
+

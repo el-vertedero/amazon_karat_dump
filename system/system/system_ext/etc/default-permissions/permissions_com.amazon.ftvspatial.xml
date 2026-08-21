@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+   Copyright (c) 2026 Amazon.com, Inc. or its affiliates.  All rights reserved.
+   PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<exceptions>
+    <exception package="com.amazon.ftvspatial">
+        <!-- Required for drawing overlay windows on top of other apps -->
+        <permission name="android.permission.SYSTEM_ALERT_WINDOW"/>
+        <!-- Required for writing echo_devices_key to Settings.Secure -->
+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+        <!-- Required for controlling and monitoring active media sessions -->
+        <permission name="android.permission.MEDIA_CONTENT_CONTROL"/>
+        <!-- Required for SpatialController foreground service with specialUse type -->
+        <permission name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+        <!-- Required for checking foreground app before showing link UI -->
+        <permission name="android.permission.GET_TASKS"/>
+        <!-- Required by MAP client to read device serial number (DSN) -->
+        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+        <!-- Required by CommonSpeechMiddleware for AmazonAudioManager.getPackageInFocus() -->
+        <permission name="android.permission.PACKAGE_USAGE_STATS"/>
+        <!-- Required for ambient sleep after vacancy -->
+        <permission name="android.permission.DEVICE_POWER"/>
+    </exception>
+</exceptions>

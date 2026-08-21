@@ -1,0 +1,8 @@
+<exceptions>
+    <!--
+        Ambient needs READ_EXTERNAL_STORAGE permission in order to read the status of the photos app.
+    -->
+    <exception package="com.amazon.tv.ftvambient">
+        <permission name="android.permission.READ_EXTERNAL_STORAGE" fixed="true"/>
+    </exception>
+</exceptions>

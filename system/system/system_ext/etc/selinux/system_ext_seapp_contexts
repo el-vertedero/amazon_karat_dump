@@ -1,0 +1,11 @@
+user=_app seinfo=amazonapp domain=amazon_app type=app_data_file levelFrom=none
+user=_app seinfo=platform name=com.android.providers.downloads domain=priv_app type=app_data_file levelFrom=none
+user=_app seinfo=amazonapp domain=amazon_log_app name=com.amazon.client.metrics type=app_data_file levelFrom=none
+user=_app seinfo=amazonapp domain=priv_app name=com.amazon.device.software.ota type=app_data_file levelFrom=none
+user=_app isPrivApp=true seinfo=platform name=com.amazon.notification domain=notification_app type=app_data_file levelFrom=app
+user=system seinfo=platform name=com.ivona.tts.oem domain=tts_system_app type=app_data_file levelFrom=none
+user=_app seinfo=platform name=com.amazon.tiramisubootsupport domain=tiramisu_platform_app type=app_data_file levelFrom=none
+user=_app seinfo=platform name=com.amazon.inloctest domain=inloc_app type=app_data_file levelFrom=user
+user=_app seinfo=amazonapp name=com.amazon.perfc domain=amazon_perfstats_app type=app_data_file
+user=_app seinfo=platform name=com.amazon.cloudpairing.CloudPairingService domain=cloudpairing_app type=app_data_file levelFrom=user
+user=_app seinfo=platform name=com.amazon.cloudpairing.CloudPairingAgentSystemService domain=cloudpairing_system_app type=app_data_file levelFrom=user

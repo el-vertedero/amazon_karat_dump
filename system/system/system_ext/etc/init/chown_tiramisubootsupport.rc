@@ -1,0 +1,17 @@
+# We need to delete Apks and its folder once finish installation to save storage space.
+# Apks are placed in data/preloads/file_cache and they're owned by root:root. Change owner
+# to system:system allow us to delete Apks using existing system level Api (deletePreloadsFileCache)
+# in PackageManager. Since our app attempt to delete Apks right after boot, we need to change the
+# owner recursively for each Apk before that.
+
+on post-fs-data
+    start chown_tiramisubootsupport
+
+service chown_tiramisubootsupport /system/bin/sh /system_ext/bin/chown_tiramisubootsupport
+    capabilities CHOWN
+    class main
+    user system
+    group root system
+    disabled
+    oneshot
+    seclabel u:r:chown_tiramisubootsupport:s0

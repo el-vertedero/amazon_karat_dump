@@ -1,0 +1,11 @@
+<!--
+    Copyright (c) 2023 Amazon.com, Inc. or its affiliates.  All rights reserved.
+    PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+
+<exceptions>
+    <exception package="com.amazon.aca">
+        <permission name="android.permission.READ_PHONE_STATE" fixed="true"/>
+        <permission name="android.permission.GET_ACCOUNTS" fixed="true"/>
+    </exception>
+</exceptions>

@@ -1,0 +1,22 @@
+#
+# Copyright (c) 2026 Amazon.com, Inc. or its affiliates. All rights reserved.
+# PROPRIETARY/CONFIDENTIAL. USE IS SUBJECT TO LICENSE TERMS.
+#
+service appstoreapkdropboxd /system_ext/bin/appstoreapkdropboxd
+    interface aidl appstoreapkdropboxd
+    class main
+    user system
+    group system
+    capabilities CHOWN FOWNER FSETID
+    disabled
+    oneshot
+
+# Create and configure /data/appstoreapkdropbox/ after /data is mounted
+# - mode 2770: setgid ensures new files inherit vendor_amazon_gid group
+# - owner system:vendor_amazon_gid: system_server can rename, amazon apps can read/write
+# - restorecon: apply SELinux label appstore_apk_dropbox_file from file_contexts
+on post-fs-data
+    mkdir /data/appstoreapkdropbox 2770 system vendor_amazon_gid
+    chown system vendor_amazon_gid /data/appstoreapkdropbox
+    chmod 2770 /data/appstoreapkdropbox
+    restorecon_recursive /data/appstoreapkdropbox

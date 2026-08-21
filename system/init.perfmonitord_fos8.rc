@@ -1,0 +1,13 @@
+service perfmonitord /system/system_ext/bin/perfmonitord
+    user root
+    group system readproc
+    class main
+
+on post-fs
+    insmod /vendor/lib/modules/perfinfo.ko
+    chown root system /sys/kernel/perfinfo/total_pss_kb
+    chmod 0660 /sys/kernel/perfinfo/total_pss_kb
+    restorecon_recursive /sys/kernel/perfinfo
+
+on post-fs-data
+    mkdir /data/perfmonitor 0755 root system

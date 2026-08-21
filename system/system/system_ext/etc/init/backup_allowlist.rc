@@ -1,0 +1,14 @@
+on post-fs-data
+    mkdir /data/misc_ne 01770 system misc encryption=None
+
+on early-boot && property:ro.crypto.state=encrypted && property:ro.crypto.type=file
+    setprop backup_allowlist.status restore
+    start backup_allowlist
+
+service backup_allowlist /system_ext/bin/backup_allowlist
+    capabilities CHOWN
+    class main
+    user system
+    group root system cache
+    disabled
+    oneshot

@@ -1,0 +1,30 @@
+# SmartHome init.rc configuration for FOS8 FTVs
+
+on post-fs-data
+    # It is important to use exec (that blocks) with mkdir -p so that we don't fail if /data/securedStorageLocation was pre-created.
+    # Android init subsystem's mkdir command does not recognize -p option, hence the usage of exec command.
+    exec - system system -- /bin/mkdir -p -m 0777 /data/securedStorageLocation
+    # Fix ownership in case it was previously owned by vendor_smarthome as above command won't change it
+    chown system system /data/securedStorageLocation
+    # Create SmartHome directories with vendor_smarthome UID
+    mkdir /data/securedStorageLocation/SmartHome 0777 vendor_smarthome vendor_smarthome
+    mkdir /data/securedStorageLocation/SmartHome/PROT_CHIP 0777 vendor_smarthome vendor_smarthome
+    mkdir /data/securedStorageLocation/SmartHome/chip-tool-server/ 0777 vendor_smarthome vendor_smarthome
+    mkdir /data/securedStorageLocation/SmartHome/chip-tool/ 0777 vendor_smarthome vendor_smarthome
+    # Fix SELinux contexts on OTA to ensure smarthomed can access directories
+    restorecon_recursive /data/securedStorageLocation/SmartHome
+
+on property:sys.boot_completed=1
+    chown vendor_smarthome vendor_smarthome /data/securedStorageLocation/SmartHome/PROT_CHIP/CapabilityInstanceDatabase.db
+    chown vendor_smarthome vendor_smarthome /data/securedStorageLocation/SmartHome/PROT_CHIP/CHIPAdapterDatabase.db
+    chown vendor_smarthome vendor_smarthome /data/securedStorageLocation/SmartHome/PROT_CHIP/CHIPAdapterDatabase.db-journal
+    chown vendor_smarthome vendor_smarthome /data/securedStorageLocation/SmartHome/chip-tool/chip_tool_config.ini
+    # Ensure database files created during boot have correct SELinux context
+    restorecon_recursive /data/securedStorageLocation/SmartHome/PROT_CHIP
+
+service smarthomed /system/bin/SmartHomed
+    class main
+    user vendor_smarthome
+    group vendor_smarthome dbus inet net_raw
+    seclabel u:r:smarthomed:s0
+

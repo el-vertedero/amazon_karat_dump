@@ -1,0 +1,16 @@
+on post-fs-data
+    mkdir /data/misc_ne 0770 system system encryption=None
+
+on early-boot
+    mkdir /data/system/com.ivona.tts.oem 0770 system system
+    restorecon_recursive /data/system/com.ivona.tts.oem
+    start migrate_voices
+
+service migrate_voices /system/bin/sh /system_ext/bin/migrate_voices
+    capabilities CHOWN
+    class main
+    user system
+    group root system cache
+    disabled
+    oneshot
+    seclabel u:r:migrate_voices:s0

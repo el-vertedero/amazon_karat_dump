@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright (c) 2025 - 2026 Amazon.com, Inc. or its affiliates.  All rights reserved.
+   PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<!--
+This XML file declares which signature|privileged permissions should be granted to NeoDelegate
+applications.It allows additional grants on top of privapp-permissions-platform.xml.
+-->
+<permissions>
+    <privapp-permissions package="com.amazon.neodelegate">
+        <!-- Needed for Build.getSerial(), which is required by native services -->
+        <!-- that are in the allow-list on NEO Framework -->
+        <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+        <!-- Permission required to call API Context.sendBroadcastAsUser(...), which is -->
+        <!-- necessary for Multi-User support on NEO Framework -->
+        <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+        <!-- Permission required to call API AmazonUserManager.startActivityForProfile(...), -->
+        <!-- which is necessary for Multi-User support on NEO Framework -->
+        <permission name="android.permission.MANAGE_USERS"/>
+        <!-- Permission required to call API connectivityManager.getActiveNetwork(); -->
+        <!-- for all UIDs (Dial service uses it) -->
+        <permission name="android.permission.NETWORK_FACTORY"/>
+        <!-- Permission required to call API getActivityService().getRunningAppProcesses(); -->
+        <!-- for all UIDs (Dial service uses it) -->
+        <permission name="android.permission.REAL_GET_TASKS"/>
+        <!-- Permission required for interact with Android secure setttings APIs -->
+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+        <!-- It is used to invoke AmazonAudioManager.getPackageInFocus() on the dependent -->
+        <!-- package CommonSpeechMiddleware_SpeechServiceUtil -->
+        <permission name="android.permission.PACKAGE_USAGE_STATS"/>
+        <!-- Permission is required to trigger CEC scanning -->
+        <!-- Necessary to listen and send CEC messages -->
+        <permission name="android.permission.HDMI_CEC"/>
+        <!-- Required to call MediaSessionManager#addOnActiveSessionsChangedListener -->
+        <permission name="android.permission.MEDIA_CONTENT_CONTROL"/>
+        <!-- Required to call AlarmManager#setTimeZone -->
+        <permission name="android.permission.SET_TIME_ZONE"/>
+        <!-- Required to call AppOps.noteOpNoThrow() -->
+        <permission name="android.permission.UPDATE_APP_OPS_STATS"/>
+        <!-- Permission required to install APKs via Android's PackageInstaller APIs -->
+        <permission name="android.permission.INSTALL_PACKAGES"/>
+    </privapp-permissions>
+</permissions>

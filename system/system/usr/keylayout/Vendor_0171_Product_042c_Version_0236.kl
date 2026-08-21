@@ -1,0 +1,97 @@
+#
+# Copyright (c) 2025 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+#
+# BLE AZALEA (RDK2.0 Proton) Remote's KeyLayout File
+#
+
+key 116   POWER
+key 217   ALEXA
+
+key 96    DPAD_CENTER
+key 103   DPAD_UP
+key 105   DPAD_LEFT
+key 106   DPAD_RIGHT
+key 108   DPAD_DOWN
+
+key 172   HOME
+key 158   BACK
+key 139   MENU
+
+key 168   MEDIA_REWIND
+key 208   MEDIA_FAST_FORWARD
+key 164   MEDIA_PLAY_PAUSE
+
+key 113   VOLUME_MUTE
+key 114   VOLUME_DOWN
+key 115   VOLUME_UP
+
+key 362   LIVE_TV #GUIDE
+key 402   CHANNEL_UP
+key 403   CHANNEL_DOWN
+
+key 2     1
+key 3     2
+key 4     3
+key 5     4
+key 6     5
+key 7     6
+key 8     7
+key 9     8
+key 10    9
+key 11    0 # 0 , 10/0 for JP
+
+key 370   CAPTIONS #SUBTITLE
+key 644   TV      #LIVE
+key 358   TV_TELETEXT
+key 638   BUTTON_1 #MYAPP
+
+
+# App Keys
+key 744   APP_1
+key 745   APP_2
+key 746   APP_3
+key 747   APP_4
+
+key 398   PROG_RED
+key 399   PROG_GREEN
+key 400   PROG_YELLOW
+key 401   PROG_BLUE
+
+key 641   TV_INPUT # INPUT
+key 642   RECORDING_LIST # RECORDING_LIST
+key 643   TV_DATA_SERVICE # TV_DATA_SERVICE
+
+key 645 BUTTON_6 #PICTURE
+key 647 LIST_PROVIDERS #LIST
+key 646 LAST_VIEW #LASTVIEW
+
+key 633   TV_TERRESTRIAL_DIGITAL # DATA
+key 748   TV_SATELLITE_CS        # CS
+key 249   TV_SATELLITE_BS        # BS
+
+key 676 AUDIO_SELECT # VENDOR_01 audio select
+key 677 SOUND_FOCUS # VENDOR_02 sound focus
+key 678 MEDIA_NEXT_CHAPTER # VENDOR_03 skip forward
+key 679 MEDIA_PREV_CHAPTER # VENDOR_04 skip rewind
+key 680 MEDIA_PLAY  # VENDOR_05 play 1.3xPlay
+key 681 MEDIA_STOP # VENDOR_06 stop
+key 682 MEDIA_PAUSE # VENDOR_07 pause
+key 683 MEDIA_PEEK_CHAPTER # VENDOR_08 skip 30s
+key 684 AVR_INPUT # VENDOR_09 input AV
+key 685 VID_SRC_INFO # VENDOR_10 0x2ad info
+key 686 DVR_RECORD # VENDOR_11 Recording
+key 687 AUDIO_DETAILS # VENDOR_12 Audio Description
+key 689 TV_SATELLITE # VENDOR_14 4K
+key 690 SETTINGS
+key 691 11 # VENDOR_15 11
+key 692 12 # VENDOR_16 12
+
+key 672 APP_6 # Partner5
+key 673 APP_7 # Partner6
+key 674 APP_8 # Partner7
+key 675 APP_9 # Partner8
+key 688 APP_10 # VENDOR_13 My Viera
+

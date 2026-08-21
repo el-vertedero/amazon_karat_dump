@@ -1,0 +1,6 @@
+libaudiostream_jni.AMAZON.so
+libopus_jni.AMAZON.so
+libpryon.AMAZON.so
+libipcn_dalvik.AMAZON.so
+libmrmaudiotrack.AMAZON.so
+libWnnWrapper.AMAZON.so

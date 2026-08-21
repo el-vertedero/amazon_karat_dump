@@ -1,0 +1,7 @@
+# Whole Home Audio
+# whad_cc is installed in system_ext on fos8
+service whad_cc /system/system_ext/bin/whad_cc
+    class main
+    user system
+    group system
+

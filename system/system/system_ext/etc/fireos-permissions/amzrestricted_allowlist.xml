@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright (c) 2019 - 2026 Amazon.com, Inc. or its affiliates.  All rights reserved.
+   PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<fireos-permissions>
+    <amzrestricted-permissions package="com.amazon.dialservice" >
+        <permission name="android.permission.MANAGE_USERS"/>
+        <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+        <!-- permission need to set P2P name for device -->
+        <permission name="amazon.aosp.permission.NETWORK_SETTINGS" />
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.neo.dial.service" >
+        <permission name="android.permission.MANAGE_USERS"/>
+        <permission name="android.permission.INTERACT_ACROSS_USERS"/>
+        <!-- permission need to set P2P name for device -->
+        <permission name="amazon.aosp.permission.NETWORK_SETTINGS" />
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.kor.demo" >
+        <permission name="amazon.aosp.permission.CLEAR_APP_USER_DATA"/>
+        <permission name="amazon.aosp.permission.REMOVE_TASKS"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.ods.kindleconnect" >
+        <permission name="com.amazon.permission.INJECT_EVENTS"/>
+        <permission name="amazon.aosp.permission.CAPTURE_VIDEO_OUTPUT"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.oobe" >
+        <permission name="amazon.aosp.permission.NETWORK_SETTINGS" />
+        <!-- Adding NETWORK_STACK permission to access Disable/Enable Network in
+        NetworkManagerService. If a user tries to connect to network/register to account in OOBE
+        Frozen mode or tries to Enable/Disable network in EU device, the NetworkManagerService is
+        triggered. -->
+        <permission name="amazon.aosp.permission.NETWORK_STACK" />
+        <permission name="amazon.aosp.permission.MANAGE_PROFILE_AND_DEVICE_OWNERS"/>
+        <permission name="amazon.aosp.permission.MANAGE_NETWORK_POLICY"/>
+        <permission name="com.amazon.permission.MODIFY_NETWORK_POWER_SETTINGS"/>
+        <permission name="amazon.aosp.permission.MANAGE_DEVICE_ADMINS"/>
+        <permission name="com.amazon.permission.GET_AMZ_ADID_WITHOUT_PROFILE"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.parentalcontrols" >
+        <permission name="amazon.aosp.permission.MANAGE_PROFILE_AND_DEVICE_OWNERS"/>
+        <permission name="amazon.aosp.permission.MANAGE_DEVICE_ADMINS"/>
+        <!-- Permission to set profile owner using settings core -->
+        <permission name="com.amazon.tv.settings.permission.BIND_CORE_SETTINGS"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.quicksettings" >
+        <permission name="com.amazon.permission.INJECT_EVENTS"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.quicksettings.ui" >
+        <permission name="com.amazon.permission.INJECT_EVENTS"/>
+        <permission name="amazon.aosp.permission.INTERNAL_SYSTEM_WINDOW"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.settings.v2" >
+        <permission name="com.amazon.tv.settings.permission.BIND_CORE_SETTINGS"/>
+        <permission name="amazon.aosp.permission.NETWORK_SETTINGS" />
+        <permission name="amazon.aosp.permission.NETWORK_STACK" />
+        <permission name="com.amazon.permission.MODIFY_NETWORK_POWER_SETTINGS"/>
+        <permission name="com.amazon.amazonirledmanager.permission.IR_LED" />
+        <!-- Permission to enable/disable auto revocations of app permissions from Settings -->
+        <permission name="amazon.aosp.permission.ALLOWLIST_AUTO_REVOKE_PERMISSION" />
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.vizzini" >
+        <permission name="com.amazon.tv.launcher.permission.NAVIGATION"/>
+        <permission name="amazon.aosp.permission.INJECT_EVENTS"/>
+        <permission name="com.amazon.permission.INJECT_EVENTS"/>
+        <permission name="amazon.aosp.permission.INTERNAL_SYSTEM_WINDOW"/>
+        <permission name="com.amazon.permission.RECORD_AUDIO_ACROSS_USER_PROFILES"/>
+        <permission name="com.amazon.permission.RECEIVE_MEDIA_SESSION_EVENT_ACROSS_USER_PROFILES"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.livetv" >
+        <permission name="amazon.aosp.permission.ACCESS_SURFACE_FLINGER"/>
+        <!-- Permission to retrieve non amazon and non native to device amazon ad ids -->
+        <permission name="com.amazon.permission.GET_NON_AMZ_ADID"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.avl.stark" >
+        <permission name="amazon.aosp.permission.INJECT_EVENTS"/>
+        <permission name="com.amazon.permission.INJECT_EVENTS"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.avl.ftv" >
+        <permission name="amazon.aosp.permission.INJECT_EVENTS"/>
+        <permission name="com.amazon.permission.INJECT_EVENTS"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.lagunaservice" >
+        <permission name="amazon.aosp.permission.INJECT_EVENTS"/>
+        <permission name="com.amazon.permission.INJECT_EVENTS"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.turnstile" >
+        <permission name="com.amazon.permission.INJECT_EVENTS"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.appaccesskeyprovider" >
+        <permission name="com.amazon.permission.ACCESS_CERTIFICATE"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.logan" >
+        <permission name="amazon.aosp.permission.INJECT_EVENTS"/>
+        <permission name="com.amazon.permission.INJECT_EVENTS"/>
+        <permission name="amazon.aosp.permission.INTERNAL_SYSTEM_WINDOW"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.spiderpork" >
+        <permission name="com.amazon.permission.INJECT_EVENTS"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.lagunasystem" >
+        <permission name="com.amazon.amazoninputmanager.permission.SET_PARTNER_APP_INFO" />
+        <permission name="com.amazon.amazoninputmanager.permission.INPUT_LOCKING" />
+        <permission name="com.amazon.amazontimemodemanager.permission.TIME_MODE" />
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.lagunaservice" >
+        <permission name="com.amazon.amazontimemodemanager.permission.TIME_MODE" />
+        <permission name="com.amazon.amazoninputmanager.permission.INPUT_LOCKING" />
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.ffsprovisioneeclient" >
+        <permission name="amazon.aosp.permission.NETWORK_SETTINGS" />
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.ssdpservice" >
+        <permission name="com.amazon.permission.MODIFY_NETWORK_POWER_SETTINGS" />
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.apple.airplay.amazon.airplay" >
+        <permission name="amazon.aosp.permission.NETWORK_SETTINGS" />
+        <permission name="amazon.aosp.permission.INJECT_EVENTS"/>
+        <permission name="com.amazon.permission.MODIFY_NETWORK_POWER_SETTINGS" />
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.launcher" >
+        <permission name="amazon.aosp.permission.INTERNAL_SYSTEM_WINDOW"/>
+        <permission name="amazon.aosp.permission.INJECT_EVENTS"/>
+        <permission name="com.amazon.permission.INJECT_EVENTS"/>
+        <!-- Permission to retrieve non amazon and non native to device amazon ad ids -->
+        <permission name="com.amazon.permission.GET_NON_AMZ_ADID"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.ssm" >
+        <permission name="amazon.aosp.permission.NETWORK_SETTINGS"/>
+        <!-- Permission required to save network proxy when connected to ethernet -->
+        <permission name="amazon.aosp.permission.NETWORK_STACK" />
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.kso.blackbird" >
+        <!-- Permission to retrieve non amazon and non native to device amazon ad ids -->
+        <permission name="com.amazon.permission.GET_NON_AMZ_ADID"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.ftv.screensaver.provider.sponsoredcontent" >
+        <!-- Permission to retrieve non amazon and non native to device amazon ad ids -->
+        <permission name="com.amazon.permission.GET_NON_AMZ_ADID"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.developer.dataservice" >
+        <permission name="com.amazon.permission.ACTIVITY_ABORT_STATE"/>
+        <permission name="com.amazon.permission.LAUNCH_APP_POST_OPT_IN"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.adep" >
+        <!-- Permission required to abort activity launch in FireTvDeepLinkHandler -->
+        <permission name="com.amazon.permission.ACTIVITY_ABORT_STATE"/>
+        <!-- Permission required to launch app post ADEP validation for FireTvDeepLinkHandler -->
+        <permission name="com.amazon.permission.LAUNCH_APP_POST_HARM_DETECTION"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.simplewifi" >
+        <permission name="amazon.aosp.permission.NETWORK_SETTINGS"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.device.lowstoragemanager" >
+        <!-- Permission required to bind with settings core app for uninstall functionality  -->
+        <permission name="com.amazon.tv.settings.permission.BIND_CORE_SETTINGS"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.storage.manager" >
+        <!-- Permission required to bind with settings core app for uninstall functionality  -->
+        <permission name="com.amazon.tv.settings.permission.BIND_CORE_SETTINGS"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.conditionalaccess" >
+        <!-- Permission required to show CI+ UI as an overlay menu -->
+        <permission name="amazon.aosp.permission.INTERNAL_SYSTEM_WINDOW"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.tv.democontent.provider" >
+        <!-- Permission required to bind with settings core app for using its
+        clearApplicationData API  -->
+        <permission name="com.amazon.tv.settings.permission.BIND_CORE_SETTINGS"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.diode" >
+        <!-- Permission required to bind with settings core app for
+        clearApplicationCache functionality  -->
+        <permission name="com.amazon.tv.settings.permission.BIND_CORE_SETTINGS"/>
+    </amzrestricted-permissions>
+
+    <amzrestricted-permissions package="com.amazon.venezia" >
+      <!-- Permission required to bind with settings core app for app cache clear functionality -->
+      <permission name="com.amazon.tv.settings.permission.BIND_CORE_SETTINGS"/>
+      <!-- Permission required to start App install service -->
+      <permission name="com.amazon.permission.START_APP_INSTALL_SERVICE"/>
+    </amzrestricted-permissions>
+
+</fireos-permissions>

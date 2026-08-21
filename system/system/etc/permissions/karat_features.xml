@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright (c) 2018 - 2023 Amazon.com, Inc. or its affiliates.  All rights reserved.
+   PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<permissions>
+    <!-- By declaring the feature here
+         The api PackageManager.hasSystemFeature(String feature) will
+         return true if passed the feature name below.-->
+    <feature name="amazon.hardware.color_depth_adjustment"/>
+    <feature name="amazon.hardware.external_storage"/>
+    <feature name="android.software.cant_save_state"/>
+    <feature name="com.amazon.feature.profile_picker"/>
+    <feature name="amazon.hardware.usb_storage"/>
+    <feature name="amazon.hardware.ultra_hd"/>
+    <feature name="com.amazon.ugs.enabled"/>
+    <feature name="com.amazon.ffs.enabled"/>
+    <feature name="amazon.software.screen_mirroring"/>
+    <feature name="com.amazon.hardware.always_hdr.supported"/>
+    <feature name="com.amazon.instant_str"/>
+    <feature name="com.amazon.feature.security.camera.pip.enabled"/>
+    <feature name="com.amazon.hevc_ltr.supported"/>
+    <feature name="amazon.hardware.adaptable_storage"/>
+    <feature name="com.amazon.software.ambient"/>
+    <!-- Feature flag indicating that device supports HDMI ARC feature -->
+    <feature name="com.amazon.hardware.hdmi_arc.supported"/>
+    <!-- Feature to specify if 'disable hdr' is supported -->
+    <feature name="com.amazon.always_sdr.supported"/>
+    <feature name="com.amazon.hardware.hdmi_low_latency.supported"/>
+    <feature name="com.amazon.hardware.hdmi_off_in_sleep.supported"/>
+
+    <!-- Features used in NetworkStatusAdvisor to characterize devices -->
+    <feature name="com.amazon.firetv.ship.with.hdmi.ext"/>
+
+    <!-- Feature flag indicating that this device has Home Theater Tuple creation GUI
+         for both manual flow and FFP flow. -->
+    <feature name="com.amazon.feature.avls.htt_creation"/>
+</permissions>

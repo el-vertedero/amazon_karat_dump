@@ -1,0 +1,24 @@
+#
+# Copyright (c) 2025 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+# This is the init.rc explained in
+# https://source.android.com/docs/core/architecture/aidl/dynamic-aidl#configure-service-initrc-file
+# Android.bp specifies init_rc: ["remotedevicemanager.rc"], and this file will be added to
+# /system_ext/etc/init/ folder. Init system will know it as "remotedevicemanager". Service Manager
+# will know it as "rdmservice". It is marked as "disabled", so it won't start automatically during
+# boot, but the init system will know about it and can start it when requested. We will either start
+# it from Java by calling ServiceManager.waitForService()
+# TODO: or start it from native by calling AServiceManager_getService().
+
+on post-fs-data
+    mkdir /data/rdm 0770 system system
+    restorecon /data/rdm
+
+service remotedevicemanager /system_ext/bin/remotedevicemanager
+    interface aidl rdmservice
+    user system
+    group system
+    oneshot
+    disabled

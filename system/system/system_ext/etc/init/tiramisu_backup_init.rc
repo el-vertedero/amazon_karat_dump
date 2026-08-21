@@ -1,0 +1,6 @@
+# Create the folder that Tiramisu has write permission so
+# that we can place the full list of package file for factory
+# reset.
+
+on post-fs-data
+    mkdir data/preloads/backup/ 0777 system system encryption=None

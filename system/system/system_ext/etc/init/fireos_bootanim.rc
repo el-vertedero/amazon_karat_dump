@@ -1,0 +1,19 @@
+# Copyright (c) 2019 - 2023  Amazon.com, Inc. or its affiliates.  All rights reserved.
+#
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+# 'persist.sys.boot.reason' is not getting set in case of power-cut/bad reboot, causing failure
+# to start bootanim service (KARATPLAT-1847). Solution: When 'persist.sys.boot.reason' is not
+# set, we fallback to default value "reboot,".
+service bootanim /system/system_ext/bin/fireos_bootanimation ${persist.sys.boot.reason:-reboot,}
+    class core animation
+    user graphics
+    group graphics audio vendor_amazon_gid
+    disabled
+    oneshot
+    ioprio rt 0
+    task_profiles MaxPerformance
+
+on post-fs-data
+    mkdir /data/bootanim 0771 system vendor_amazon_gid
