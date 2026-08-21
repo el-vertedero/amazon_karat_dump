@@ -1,0 +1,14 @@
+# karat-user 11 RS8182.3811N 0032548774656 amz-p,release-keys
+- manufacturer: amazon
+- platform: mt8696
+- codename: karat
+- flavor: karat-user
+- release: 11
+- id: RS8182.3811N
+- incremental: 0032548774788
+- tags: amz-p,release-keys
+- fingerprint: Amazon/karat/karat:11/RS8182.3811N/0032548774656:user/amz-p,release-keys
+- is_ab: false
+- brand: Amazon
+- branch: karat-user-11-RS8182.3811N-0032548774656-amz-p,release-keys
+- repo: amazon_karat_dump
