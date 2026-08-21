@@ -1,0 +1,15 @@
+service start_forward /vendor/bin/wifi_forward.sh start wlan0
+    group wifi readproc
+    disabled
+    oneshot
+
+service start_forward_eth /vendor/bin/wifi_forward.sh start eth0
+    group wifi readproc
+    disabled
+    oneshot
+
+service stop_forward /vendor/bin/wifi_forward.sh stop
+    group wifi readproc
+    disabled
+    oneshot
+

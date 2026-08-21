@@ -1,0 +1,524 @@
+# MTK platform .rc configure
+
+import ${ro.vendor.rc}init.connectivity.rc
+import ${ro.vendor.rc}init.mt8696.usb.rc
+import /vendor/etc/init/hw/init.project.rc
+import /system_ext/etc/init/hw/init.aee.rc
+import /FWUpgradeInit.rc
+import /vendor/etc/init/hw/init.aee.rc
+import ${ro.vendor.rc}init.volte.rc
+import ${ro.vendor.rc}init.mal.rc
+import ${ro.vendor.rc}${ro.vendor.init.sensor.rc}
+
+# *** DO NOT import the new rc file after this line ***
+
+on early-init
+    write /proc/bootprof "INIT:early-init"
+    # boot perf. tune
+    write /sys/devices/platform/boot_dramboost/dramboost/dramboost 1
+
+    # set cpufreq governor to performance mode to reduce boot time
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "performance"
+    exec /system/bin/date 2022-01-01
+
+# Keep debugfs mounted in non-user builds
+on early-init && property:ro.build.type=eng
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
+    write /sys/power/pm_print_times 0
+    setprop persist.dbg.keep_debugfs_mounted true
+on early-init && property:ro.build.type=userdebug
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
+    setprop persist.dbg.keep_debugfs_mounted true
+
+on init
+    write /proc/bootprof "INIT:init"
+    # create io boost group
+    mkdir /dev/stune/io
+    chown system system /dev/stune/io
+    chown system system /dev/stune/io/tasks
+    chmod 0666 /dev/stune/io/tasks
+
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+
+    # if primary storage is physical, set ro.vold.primary_physical to 1
+    # setprop ro.vold.primary_physical 1
+
+    mkdir /mnt/cd-rom 0000 system system
+
+# change lk_env permission
+    chown root system /proc/lk_env
+    chmod 0660 /proc/lk_env
+
+# increase sysctl_rmem_max and sysctl_wmem_max values to 2M
+    write /proc/sys/net/core/wmem_max 8388608
+    write /proc/sys/net/core/rmem_max 8388608
+
+# update cpus for cpuset cgroup
+    write /dev/cpuset/top-app/cpus 0-3
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/background/cpus 2
+    write /dev/cpuset/system-background/cpus 1-3
+    write /dev/cpuset/restricted/cpus 1-2
+
+# cpuctl hierarchy for devices using utilclamp
+    mkdir /dev/cpuctl/performance
+    mkdir /dev/cpuctl/foreground
+    mkdir /dev/cpuctl/background
+    mkdir /dev/cpuctl/top-app
+    mkdir /dev/cpuctl/rt
+    chown system system /dev/cpuctl
+    chown system system /dev/cpuctl/performance
+    chown system system /dev/cpuctl/foreground
+    chown system system /dev/cpuctl/background
+    chown system system /dev/cpuctl/top-app
+    chown system system /dev/cpuctl/rt
+    chown system system /dev/cpuctl/tasks
+    chown system system /dev/cpuctl/performance/tasks
+    chown system system /dev/cpuctl/foreground/tasks
+    chown system system /dev/cpuctl/background/tasks
+    chown system system /dev/cpuctl/top-app/tasks
+    chown system system /dev/cpuctl/rt/tasks
+    chmod 0664 /dev/cpuctl/tasks
+    chmod 0664 /dev/cpuctl/performance/tasks
+    chmod 0664 /dev/cpuctl/foreground/tasks
+    chmod 0664 /dev/cpuctl/background/tasks
+    chmod 0664 /dev/cpuctl/top-app/tasks
+    chmod 0664 /dev/cpuctl/rt/tasks
+
+
+on late-init
+    write /proc/bootprof "INIT:late-init"
+# enable rcu_expedited
+    write /sys/kernel/rcu_expedited 1
+
+# mount different fs start
+
+on charger
+    symlink /dev/block/platform/soc/bootdevice /dev/block/platform/bootdevice
+    write /sys/devices/platform/boot_dramboost/dramboost/dramboost 0
+
+    exec /system/bin/e2fsck -f -p /dev/block/platform/bootdevice/by-name/cache
+    mount ext4 /dev/block/platform/bootdevice/by-name/cache /cache rw wait
+    chmod 0660 /dev/spm
+    chown system system /dev/spm
+    start spm_script
+    chmod 0666 /dev/kmsg
+    chmod 0775 /mnt/vendor
+    mkdir /mnt/vendor/nvcfg
+    mount ext4 /dev/block/platform/bootdevice/by-name/nvcfg /mnt/vendor/nvcfg rw wait
+    chown system system /mnt/vendor/nvcfg
+    chmod 0771 /mnt/vendor/nvcfg
+    restorecon_recursive /mnt/vendor/nvcfg
+    write /sys/devices/platform/battery_meter/FG_daemon_log_level 7
+    write /sys/bus/platform/devices/battery/FG_daemon_log_level 7
+    # Permissions for System Server and daemons.
+    chown system system /sys/power/autosleep
+    chown system system /sys/power/state
+    chown system system /sys/power/wakeup_count
+    chown radio wakelock /sys/power/wake_lock
+    chown radio wakelock /sys/power/wake_unlock
+    chmod 0660 /sys/power/state
+    chmod 0660 /sys/power/wake_lock
+    chmod 0660 /sys/power/wake_unlock
+    chmod 0660 /sys/power/wakeup_count
+    write /sys/power/pm_freeze_timeout 2000
+
+    start fuelgauged
+    start fuelgauged_nvram
+
+    chown system system /sys/class/leds/lcd-backlight/brightness
+    chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/green/brightness
+
+    start vendor.light-default
+
+    # Stop bootprof
+    write /proc/bootprof "0"
+
+on early-fs
+    write /proc/bootprof "INIT:early-fs"
+
+on fs
+    write /proc/bootprof "INIT:fs"
+    wait_for_prop hwservicemanager.ready "true"
+    start vendor.boot-hal-1-1
+
+    # mount fstab
+    write /proc/bootprof "INIT:Mount_START"
+    write /sys/kernel/tracing/trace_marker "B|1|Mount"
+    symlink /dev/block/platform/soc/bootdevice /dev/block/platform/bootdevice
+    mount_all /vendor/etc/fstab.mt8696 --early
+    exec /system/bin/tune2fs -O has_journal -u 10010 -r 4096 /dev/block/platform/bootdevice/by-name/userdata
+    write /sys/kernel/tracing/trace_marker "E"
+    write /proc/bootprof "INIT:Mount_END"
+
+on fs
+    mount iso9660 loop@/vendor/etc/iAmCdRom.iso /mnt/cd-rom ro
+
+on late-fs
+    write /proc/bootprof "INIT:late-fs"
+    wait_for_prop hwservicemanager.ready "true"
+    exec_start wait_for_keymaster
+    setprop init.userspace_reboot.userdata_remount.timeoutmillis 10000
+    write /proc/bootprof "INIT:Mount_START --late"
+    exec /system/bin/resize2fs -f /dev/block/platform/bootdevice/by-name/userdata
+    write /sys/kernel/tracing/trace_marker "B|1|Mount late"
+    mount_all /vendor/etc/fstab.mt8696 --late
+    write /sys/kernel/tracing/trace_marker "E"
+    write /proc/bootprof "INIT:Mount_END --late"
+
+on post-fs
+    write /proc/bootprof "INIT:post-fs"
+
+    # Support legacy paths
+    symlink /sdcard /storage/sdcard0
+
+# change owner
+    chown system system /proc/bootprof
+    chmod 0664 /proc/bootprof
+    chown root system /proc/mtprof/cputime
+    chown root system /proc/mtprof/reboot_pid
+
+on post-fs-data
+    write /proc/bootprof "INIT:post-fs-data"
+    start audio_sys_init
+    start devcfg
+    start audio_avsync_tune
+
+    # boot time fs tune
+    write /sys/block/mmcblk0/queue/iostats 0
+    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0/queue/nr_requests 256
+    write /sys/block/dm-0/queue/read_ahead_kb 2048
+    write /sys/block/dm-1/queue/read_ahead_kb 2048
+    write /sys/block/dm-2/queue/read_ahead_kb 2048
+    write /sys/block/dm-3/queue/read_ahead_kb 2048
+    write /sys/block/dm-4/queue/read_ahead_kb 2048
+    write /sys/block/dm-5/queue/read_ahead_kb 2048
+
+    #Create cct mount point
+    mkdir /mnt/vendor/cct
+    chown root system /mnt/vendor/cct
+    chmod 0771 /mnt/vendor/cct
+
+    #Create flash folder
+    mkdir /data/vendor/flash
+    chown root system /data/vendor/flash
+    chmod 0771 /data/vendor/flash
+
+    #give system access to rfkill device node
+    chmod 0660 /dev/rfkill
+
+    # create for muxd pts device node , to operate without root
+    mkdir /dev/radio 0770 radio radio
+
+    chmod 0660 /dev/spm
+    chown system system /dev/spm
+
+# -----------------------
+# Add by MTK
+    # set ptmx group to non-root
+    chown root radio /dev/ptmx
+
+    #set mlock limit to infinate (for m4u operation)
+    setrlimit 8 -1 -1
+
+    #v4l2 codec
+    #chmod 0660 /dev/vcu
+    #chown media system /dev/vcu
+    #chmod 0660 /dev/video0
+    #chown media system /dev/video0
+    #chmod 0660 /dev/video1
+    #chown media system /dev/video1
+    mkdir /data/vendor/vcodec 0770 media system
+    mkdir /data/vendor/vcodec/log 0770 media system
+    mkdir /data/vendor/vcodec/in 0770 media system
+    mkdir /data/vendor/vcodec/out 0770 media system
+
+    # Display
+    chmod 0660 /dev/graphics/fb0
+    chown system graphics /dev/graphics/fb0
+
+    chmod 0660 /dev/mtk_disp_mgr
+    chown system graphics /dev/mtk_disp_mgr
+
+
+    chmod 0660 /dev/mtk_stc
+    chown system media /dev/mtk_stc
+
+    # Video quality
+    chmod 660 /dev/mtk_vq_mgr
+    chown media system /dev/mtk_vq_mgr
+
+
+    # device info /proc interface
+    chmod 0440 /dev/devmap
+    chown root system /dev/devmap
+
+    #Use uinput's default permission
+    chown system net_bt_admin /dev/uinput
+
+    #HDMI
+    chown media system /dev/hdmirx
+    chmod 0664 /dev/hdmirx
+    chown system media /dev/hdmitx
+    chmod 0660 /dev/hdmitx
+    #HDMI
+    chown media system /dev/cec0
+    chmod 0666 /dev/cec0
+
+    chmod 0660 /dev/mtk_mm
+    chmod 0660 /dev/mtk_mm-uncached
+
+    chown system camera /dev/mtk_mm
+    chown system camera /dev/mtk_mm-uncached
+
+    #Thermal
+    mkdir /data/vendor/.tp/ 0775 system system
+    mkdir /data/vendor/thermal/ 0775 system system
+
+    #MCUPM log
+    chmod 0440 /dev/mcupm
+    chown root system /dev/mcupm
+
+    #Efuse
+    chmod 0440 sys/firmware/devicetree/base/chosen/atag,devinfo
+    chown root system sys/firmware/devicetree/base/chosen/atag,devinfo
+# End of adding by MTK drivers
+# -----------------------
+
+on zygote-start
+    write /proc/bootprof "INIT:zygote-start"
+
+on early-boot
+    write /proc/bootprof "INIT:early-boot"
+
+on boot
+    write /proc/bootprof "INIT:boot"
+
+    write /proc/sys/vm/dirty_writeback_centisecs 300
+
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+    chmod 0660 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+    chown root   system /sys/kernel/debug/binder/transaction_log_enable
+    chown root   system /sys/kernel/debug/binder/perf_evalue
+
+##Netlog tool
+   #change permissions about terminal
+    chown root radio /proc/net/ip6_tables_matches
+    chown root radio /proc/net/ip6_tables_names
+    chown root radio /proc/net/ip6_tables_targets
+    chown root radio /proc/net/arp_tables_targets
+    chown root radio /proc/net/arp_tables_matches
+    chown root radio /proc/net/arp_tables_names
+    chown root radio /proc/net/ip_tables_targets
+    chown root radio /proc/net/ip_tables_matches
+    chown root radio /proc/net/ip_tables_names
+    chown root radio /proc/net/nf_conntrack
+    chown root radio /proc/net/nf_conntrack_expect
+    chown root radio /proc/net/netfilter/nfnetlink_log
+    chown root radio /proc/net/netfilter/nfnetlink_queue
+
+# define device for EMCSMDLOGGER
+
+#Define device for ATCID
+    chmod 660 /dev/ttyGS0
+    chown system radio /dev/ttyGS0
+#Power Manager
+    write /sys/power/pm_freeze_timeout 2000
+
+on property:vold.decrypt=trigger_reset_main
+    write /proc/bootprof "INIT:vold.decrypt=trigger_reset_main"
+    setprop sys.boot_completed 0
+    setprop dev.bootcomplete 0
+
+on property:vold.decrypt=trigger_post_fs_data
+    write /proc/bootprof "INIT:vold.decrypt=trigger_post_fs_data"
+
+on property:vold.decrypt=trigger_restart_min_framework
+    write /proc/bootprof "INIT:vold.decrypt=trigger_restart_min_framework"
+    start msensord
+    start permission_check
+
+on property:vold.decrypt=trigger_restart_framework
+    write /proc/bootprof "INIT:vold.decrypt=trigger_restart_framework"
+    start msensord
+    start permission_check
+
+on property:vold.decrypt=trigger_shutdown_framework
+    write /proc/bootprof "INIT:vold.decrypt=trigger_shutdown_framework"
+    setprop sys.boot_completed 0
+    setprop dev.bootcomplete 0
+
+on property:dev.bootcomplete=1
+    start boot_complete
+    write /sys/block/zram0/comp_algorithm zstd:-1
+    write /proc/sys/vm/page-cluster 0
+    write /proc/sys/vm/swappiness 100
+    write /sys/kernel/mm/swap/vma_ra_enabled false
+    swapon_all /vendor/etc/fstab.enableswap
+
+service audio_sys_init /vendor/bin/audio_sys_init.sh
+    class main
+    group system
+    oneshot
+    disabled
+    seclabel u:r:audio_sys_init:s0
+
+service devcfg /vendor/bin/devcfg.sh
+    class main
+    group system
+    oneshot
+    disabled
+    seclabel u:r:devcfg:s0
+
+# service to populate audio avsync tuning system property
+service audio_avsync_tune /vendor/bin/audio_avsync_tune.sh
+    class main
+    group system
+    oneshot
+    disabled
+    seclabel u:r:audio_avsync_tune:s0
+
+service boot_complete /vendor/bin/boot_complete.sh
+    class main
+    group system
+    oneshot
+    disabled
+    seclabel u:r:boot_complete:s0
+
+# bugreport is triggered by holding down volume down, volume up and power
+service bugreport /system/bin/dumpstate -d -p -B -z \
+        -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
+    class late_start
+    disabled
+    oneshot
+    keycodes 114 115 116
+
+# start EAS+
+on property:sys.boot_completed=1
+
+# enable KSM
+    write /sys/kernel/mm/ksm/sleep_millisecs 250
+    write /sys/kernel/mm/ksm/pages_to_scan 100
+    write /sys/kernel/mm/ksm/run 1
+    write /sys/kernel/mm/ksm/seeker_sleep_millisecs 50
+    write /sys/kernel/mm/ksm/mode "always"
+
+    wait /proc/forkmsleep 10
+    write /proc/sys/kernel/sched_migration_cost_ns 200000
+
+    # restore perf. parameters
+    write /sys/devices/platform/boot_dramboost/dramboost/dramboost 0
+
+    # switch to schedutil
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor "schedutil"
+
+    write /proc/sys/kernel/sched_util_clamp_min_rt_default 0
+    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/rate_limit_us 10000
+
+    # restore boot perf. tune
+    write /dev/cpuctl/performance/cpu.uclamp.min 0
+    write /dev/cpuctl/performance/cpu.uclamp.latency_sensitive 0
+
+    #PowerHAL
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/schedutil/rate_limit_us
+    chmod 0660 /sys/devices/system/cpu/cpufreq/policy0/schedutil/rate_limit_us
+
+    write /sys/class/net/p2p0/queues/rx-0/rps_cpus "fe"
+    write /sys/class/net/p2p0/queues/rx-1/rps_cpus "fe"
+    write /sys/class/net/p2p0/queues/rx-2/rps_cpus "fe"
+    write /sys/class/net/p2p0/queues/rx-3/rps_cpus "fe"
+    # end boot time fs tune
+    write /sys/block/mmcblk0/queue/iostats 1
+    write /sys/block/mmcblk0/queue/read_ahead_kb 512
+    write /sys/block/mmcblk0/queue/nr_requests 128
+    write /sys/block/dm-0/queue/read_ahead_kb 512
+    write /sys/block/dm-1/queue/read_ahead_kb 512
+    write /sys/block/dm-2/queue/read_ahead_kb 512
+    write /sys/block/dm-3/queue/read_ahead_kb 512
+    write /sys/block/dm-4/queue/read_ahead_kb 512
+    write /sys/block/dm-5/queue/read_ahead_kb 512
+    # stop bootprof
+    write /proc/bootprof 0
+
+# open /dev/watchdog
+service watchdogd /system/bin/watchdogd  20 10
+    class core
+    seclabel u:r:watchdogd:s0
+
+#service dpfd /vendor/bin/dpfd
+#	user root
+#	group system media
+
+#
+#  External Modme control related services
+#
+
+#
+#  Modem related services (Begin)
+#
+##Add by T.Zh for ppp daemon
+#service pppd /system/bin/pppd file /data/misc/ppp/ppp_options
+#    user root
+#    disabled
+#    oneshot
+#
+##
+#
+#  Modem related services (End)
+#
+
+#add for power-off alarm
+#service poad /vendor/bin/poad
+#    class main
+#    user system
+#    group system
+#    oneshot
+
+#service BGW /vendor/xbin/BGW
+#	user system
+#	group gps system radio
+#	class main
+
+# Battery info
+on property:persist.vendor.mediatek.fg.disable=1
+    write /sys/devices/platform/battery_meter/FG_daemon_disable 1
+    write /sys/bus/platform/devices/battery/FG_daemon_disable 1
+    write /sys/bus/platform/devices/battery_bq/FG_daemon_disable 1
+
+on property:persist.vendor.mediatek.fg.force25c=1
+    write /sys/devices/platform/battery_meter/FG_drv_force25c 1
+    write /sys/bus/platform/devices/battery/Battery_Temperature 25
+    write /sys/bus/platform/devices/battery_bq/FG_tempfunction_disable 1
+
+on property:persist.vendor.mediatek.fg.force25c=0
+    write /sys/devices/platform/battery_meter/FG_drv_force25c 0
+    write /sys/bus/platform/devices/battery/Battery_Temperature 65535
+    write /sys/bus/platform/devices/battery_bq/FG_tempfunction_enable 1
+
+on property:persist.vendor.mediatek.fg.log.enable=1
+    write /sys/devices/platform/battery_meter/FG_daemon_log_level 7
+    write /sys/bus/platform/devices/battery/FG_daemon_log_level 7
+    write /proc/sys/kernel/printk 8
+
+# add loghidl client
+service loghidlsysservice /system/bin/loghidlsysservice
+    class main
+    user root
+    group system
+    disabled
+
+# start meta_tst for ATM
+on property:sys.boot_completed=1 && property:ro.boot.atm=enable
+    start loghidlvendorservice
+    start loghidlsysservice
+
+# reset mdmode when modem crash happens in ATM
+on property:vendor.mtk.md1.status=reset
+    setprop persist.vendor.atm.mdmode normal
+

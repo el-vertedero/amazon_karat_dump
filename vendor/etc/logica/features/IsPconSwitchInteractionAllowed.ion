@@ -1,0 +1,19 @@
+{
+  feature_id: "IsPconSwitchInteractionAllowed",
+  fallback_value: true,
+  options: [
+    {
+        when_all: [
+          { is: ["isStoreMode", true] }
+        ],
+       return_value: false
+    },
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+        { is: ["operator", "FRANSAT"] }
+      ],
+      return_value: false
+    }
+  ]
+}

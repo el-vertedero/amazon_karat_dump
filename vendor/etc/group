@@ -1,0 +1,16 @@
+vendor_aipc::2901:
+vendor_ace_group::5002:
+vendor_ace_kv_storage::5003:
+vendor_ace_powerd::5009:
+vendor_ace_maplite::5014:
+vendor_ace_eventmgr::5017:
+vendor_ace_zigbee::5019:
+vendor_ace_cli::5026:
+vendor_ace_sensors::5027:
+vendor_inloc::5028:
+vendor_openthread::5030:
+vendor_conn_thread::5032:
+vendor_ace_metricd::5034:
+vendor_smarthome::5108:
+vendor_amazon_gid::5901:
+vendor_net_bt_stack::5999:

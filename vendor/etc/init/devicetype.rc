@@ -1,0 +1,11 @@
+#
+# Copyright (c) 2019 - 2022 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+service devicetype /vendor/bin/devicetype_service
+    oneshot
+    disabled
+
+on early-fs
+    start devicetype

@@ -1,0 +1,12 @@
+{
+  feature_id: "IsOTAAudioDescriptionTypeSupported",
+  fallback_value: false,
+  options: [
+    {
+      when_all: [
+        { in: ["countryCode", "IE", "GB", "DK", "FI", "SE", "NO"] }
+      ],
+      return_value: true
+    }
+  ]
+}

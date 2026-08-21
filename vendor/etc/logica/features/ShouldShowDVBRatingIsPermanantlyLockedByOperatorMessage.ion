@@ -1,0 +1,13 @@
+{
+  feature_id: "ShouldShowDVBRatingIsPermanantlyLockedByOperatorMessage",
+  fallback_value: false,
+  options: [
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+        { is: ["operator", "Fransat"] }
+      ],
+      return_value: true
+    }
+  ]
+}

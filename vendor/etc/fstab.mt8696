@@ -1,0 +1,42 @@
+# 1 "vendor/mediatek/proprietary_mt8696/hardware/fstab/mt8696/fstab.in.mt8696"
+# 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 341 "<built-in>" 3
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
+# 1 "vendor/mediatek/proprietary_mt8696/hardware/fstab/mt8696/fstab.in.mt8696" 2
+# 152 "vendor/mediatek/proprietary_mt8696/hardware/fstab/mt8696/fstab.in.mt8696"
+system /system ext4 ro wait,,avb=vbmeta,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+
+vendor /vendor ext4 ro wait,,avb,logical,first_stage_mount
+
+product /product ext4 ro wait,,avb,logical,first_stage_mount
+
+/dev/block/by-name/metadata /metadata ext4 noatime,nosuid,nodev,discard wait,check,formattable,first_stage_mount
+
+/dev/block/by-name/userdata /data ext4 noatime,nosuid,nodev,noauto_da_alloc,inlinecrypt wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=block,fileencryption=aes-256-xts:aes-256-cts:v2,keydirectory=/metadata/vold/metadata_encryption,fsverity
+
+/dev/block/by-name/mcupm /mcupm emmc defaults defaults
+/dev/block/by-name/cache /cache ext4 noatime,nosuid,nodev,noauto_da_alloc,discard wait,check,formattable
+
+/dev/block/by-name/lk /bootloader emmc defaults defaults
+/dev/block/by-name/para /para emmc defaults defaults
+/dev/block/by-name/misc /misc emmc defaults defaults
+
+
+/dev/block/by-name/recovery /recovery emmc defaults first_stage_mount,nofail,
+
+/dev/block/by-name/boot /boot emmc defaults first_stage_mount,nofail,
+# 207 "vendor/mediatek/proprietary_mt8696/hardware/fstab/mt8696/fstab.in.mt8696"
+/dev/block/by-name/logo /logo emmc defaults defaults
+/dev/block/by-name/expdb /expdb emmc defaults defaults
+
+/dev/block/by-name/tee1 /tee1 emmc defaults defaults
+/dev/block/by-name/tee2 /tee2 emmc defaults defaults
+
+/dev/block/by-name/dtbo /dtbo emmc defaults defaults
+
+/dev/block/by-name/vbmeta /vbmeta emmc defaults defaults
+
+/devices/platform/11240000* auto auto defaults voldmanaged=sdcard1:auto,encryptable=userdata
+/devices/platform/soc/11201000.usb* auto vfat defaults voldmanaged=usbotg:auto,encryptable=userdata

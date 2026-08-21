@@ -1,0 +1,16 @@
+{
+  /*
+  * 0 = No Parental Control Button
+  * 1 = Enable Parental Control Button
+  */
+  feature_id: "OobeParentalControlPageDefaultOption",
+  fallback_value: 0,
+  options: [
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+      ],
+      return_value: 1
+    }
+  ]
+}

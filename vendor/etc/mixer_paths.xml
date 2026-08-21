@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mixer>
+	<!-- These are the initial mixer settings -->
+	<ctl name="LINEOUT Ext Amp Switch" value="0" />
+	<ctl name="LINEOUT Mux" value="OPEN" />
+	<ctl name="HP Ext Amp Switch" value="0" />
+	<ctl name="HPOUT Mux" value="OPEN" />
+	<ctl name="AIF TX Mux" value="Analog MIC" />
+	<ctl name="Left PGA Mux" value="OPEN" />
+	<ctl name="Right PGA Mux" value="OPEN" />
+	<ctl name="INT ADDA O03_O04 Switch" value="1" />
+	<ctl name="I2S O03_O04 Switch" value="0" />
+	<ctl name="MRG BT O02 Switch" value="1" />
+	<ctl name="PCM0 O02 Switch" value="0" />
+	<ctl name="AIN Mux" value="INT ADC" />
+	<ctl name="DAIBT Mux" value="MRG" />
+
+	<ctl name="Multi_In_Bck_Select" value="SPLIN_BCK" />
+	<ctl name="Multi_In_Lrck_Select" value="SPLIN_LRCK" />
+	<ctl name="Multi_In_Sdata0_Select" value="SPLIN_SDATA" />
+	<ctl name="Multi_In_Sdata1_Select" value="SPLIN_SDATA" />
+	<ctl name="Multi_In_Sdata2_Select" value="SPLIN_SDATA" />
+	<ctl name="Multi_In_Sdata3_Select" value="SPLIN_SDATA" />
+	<ctl name="Spdif_In_Port_Select" value="SPDIF_IN_PORT_NONE" />
+	<ctl name="UL1 Mux" value="Spdif_In" />
+	<ctl name="O34 I12 Switch" value="0" />
+	<ctl name="O35 I13 Switch" value="0" />
+
+	<!-- These are actual sound device specific mixer settings -->
+	<path name="normal-playback speaker">
+	</path>
+
+	<path name="normal-playback headphone">
+	</path>
+
+	<path name="normal-playback receiver">
+	</path>
+
+	<path name="normal-playback speaker-and-headphone">
+	</path>
+
+	<path name="normal-playback bt-sco">
+		<ctl name="O03 I05 Switch" value="0" />
+		<ctl name="O04 I06 Switch" value="0" />
+		<ctl name="O02 I05 Switch" value="1" />
+		<ctl name="O02 I06 Switch" value="1" />
+	</path>
+
+	<path name="low-latency-playback speaker">
+	</path>
+
+	<path name="low-latency-playback headphone">
+	</path>
+
+	<path name="low-latency-playback receiver">
+	</path>
+
+	<path name="low-latency-playback speaker-and-headphone">
+	</path>
+
+	<path name="speaker">
+		<ctl name="LINEOUT Mux" value="VOICE_AMP" />
+	</path>
+
+	<path name="headphone">
+		<ctl name="HPOUT Mux" value="AUDIO_AMP" />
+	</path>
+
+	<path name="receiver">
+	</path>
+
+	<path name="speaker-and-headphone">
+		<path name="speaker" />
+		<path name="headphone" />
+	</path>
+
+	<path name="digital-mic">
+		<ctl name="AIF TX Mux" value="Digital MIC"/>
+	</path>
+
+	<path name="builtin-mic">
+		<ctl name="O40 I72 Switch" value="1" />
+		<ctl name="O41 I73 Switch" value="1" />
+		<ctl name="O42 I74 Switch" value="1" />
+		<ctl name="O43 I75 Switch" value="1" />
+		<ctl name="O44 I76 Switch" value="1" />
+		<ctl name="O45 I77 Switch" value="1" />
+		<ctl name="O46 I78 Switch" value="1" />
+		<ctl name="O47 I79 Switch" value="1" />
+	</path>
+
+	<path name="legacy-arc-input">
+		<ctl name="Multi_In_Bck_Select" value="SPLIN_BCK" />
+		<ctl name="Multi_In_Lrck_Select" value="SPLIN_LRCK" />
+		<ctl name="Multi_In_Sdata0_Select" value="SPLIN_SDATA" />
+		<ctl name="Multi_In_Sdata1_Select" value="SPLIN_SDATA" />
+		<ctl name="Multi_In_Sdata2_Select" value="SPLIN_SDATA" />
+		<ctl name="Multi_In_Sdata3_Select" value="SPLIN_SDATA" />
+		<ctl name="Spdif_In_Port_Select" value="SPDIF_IN_PORT_ARC" />
+		<ctl name="UL1 Mux" value="Spdif_In" />
+	</path>
+
+	<path name="enhanced-arc-input">
+		<ctl name="Multi_In_Bck_Select" value="EARC_INT_BCK" />
+		<ctl name="Multi_In_Lrck_Select" value="EARC_INT_LRCK" />
+		<ctl name="Multi_In_Sdata0_Select" value="EARC_SDATA" />
+		<ctl name="Multi_In_Sdata1_Select" value="EARC_SDATA" />
+		<ctl name="Multi_In_Sdata2_Select" value="EARC_SDATA" />
+		<ctl name="Multi_In_Sdata3_Select" value="EARC_SDATA" />
+		<ctl name="UL1 Mux" value="Multi_In" />
+	</path>
+
+	<path name="dummy-arc-input">
+		<ctl name="O34 I12 Switch" value="1" />
+		<ctl name="O35 I13 Switch" value="1" />
+	</path>
+
+	<path name="back-mic">
+		<ctl name="Left PGA Mux" value="CH0"/>
+		<ctl name="Right PGA Mux" value="CH0"/>
+	</path>
+
+	<path name="headset-mic">
+		<ctl name="Left PGA Mux" value="CH1"/>
+		<ctl name="Right PGA Mux" value="CH1"/>
+	</path>
+
+</mixer>

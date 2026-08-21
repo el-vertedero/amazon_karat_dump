@@ -1,0 +1,22 @@
+[
+    {
+        evaluator_name: "region",
+        evaluator_implementation: "logica.evaluators.caseInsensitiveStringEqualEvaluator",
+        evaluator_uses_context_key: "region"
+    },
+    {
+        evaluator_name: "countryCode",
+        evaluator_implementation: "logica.evaluators.caseInsensitiveStringEqualEvaluator",
+        evaluator_uses_context_key: "countryCode"
+    },
+    {
+        evaluator_name: "operator",
+        evaluator_implementation: "logica.evaluators.caseInsensitiveStringEqualEvaluator",
+        evaluator_uses_context_key: "operator"
+    },
+   {
+       evaluator_name: "isStoreMode",
+       evaluator_implementation: "logica.evaluators.equalEvaluator",
+       evaluator_uses_context_key: "isStoreMode"
+   }
+]

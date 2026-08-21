@@ -1,0 +1,9 @@
+on post-fs-data
+    mkdir /data/vendor/tee 0770 system system
+    restorecon -R /data/vendor/tee
+
+service tee-supplicant /vendor/bin/tee-supplicant
+    class late_start
+    group system drmrpc inet
+    capabilities SYS_RAWIO
+    shutdown critical

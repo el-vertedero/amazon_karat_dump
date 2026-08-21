@@ -1,0 +1,41 @@
+/*
+ * Copyright (c) 2024 - 2025 Amazon.com, Inc. or its affiliates.  All rights reserved.
+ *
+ * PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+ */
+{
+  feature_id: "DefaultLockedDvbRatings",
+  fallback_value: [],
+  options: [
+    {
+      when_all: [
+        { is: ["countryCode", "BE"] }
+      ],
+      return_value: [DVB_12]
+    },
+    {
+      when_all: [
+        { in: ["countryCode", "RO", "HU"] }
+      ],
+      return_value: [DVB_17]
+    },
+    {
+      when_all: [
+        { in: ["countryCode", "IT", "NL", "LU", "CZ", "SK", "AT", "HR", "PL", "PT"] }
+      ],
+      return_value: [DVB_18]
+    },
+    {
+      when_all: [
+        { is: ["countryCode", "FR"] }
+      ],
+      return_value: [FR_DVB_18]
+    },
+    {
+      when_all: [
+        { is: ["countryCode", "ES"] }
+      ],
+      return_value: [ES_DVB_18]
+    }
+  ]
+}

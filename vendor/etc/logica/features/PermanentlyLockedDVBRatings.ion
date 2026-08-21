@@ -1,0 +1,29 @@
+{
+  feature_id: "PermanentlyLockedDVBRatings",
+  fallback_value: [],
+  options: [
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+        { is: ["countryCode", "FR"] },
+        { is: ["operator", "FRANSAT"] }
+      ],
+      return_value: [FR_DVB_18]
+    },
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+        { is: ["countryCode", "ES"] },
+        { is: ["operator", "FRANSAT"] }
+      ],
+      return_value: [ES_DVB_18, ES_DVB_X]
+    },
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+        { is: ["operator", "FRANSAT"] }
+      ],
+      return_value: [DVB_18]
+    }
+  ]
+}
