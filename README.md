@@ -1,0 +1,14 @@
+# karat-user 11 RS8185.3885N 0033018555648 amz-p,release-keys
+- manufacturer: amazon
+- platform: mt8696
+- codename: karat
+- flavor: karat-user
+- release: 11
+- id: RS8185.3885N
+- incremental: 0033018555780
+- tags: amz-p,release-keys
+- fingerprint: Amazon/karat/karat:11/RS8185.3885N/0033018555648:user/amz-p,release-keys
+- is_ab: false
+- brand: Amazon
+- branch: karat-user-11-RS8185.3885N-0033018555648-amz-p,release-keys
+- repo: amazon_karat_dump
