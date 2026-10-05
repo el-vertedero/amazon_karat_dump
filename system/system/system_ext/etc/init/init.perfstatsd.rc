@@ -1,0 +1,14 @@
+service perfstatsd /system/system_ext/bin/perfstatsd
+    user root
+    group system
+    class main
+    disabled
+
+on property:persist.perfstats.enable=0
+    stop perfstatsd
+
+on property:persist.perfstats.enable=1
+    start perfstatsd
+
+on post-fs-data
+    mkdir /data/perfstats 0775 root system

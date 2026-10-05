@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright (c) 2023 Amazon.com, Inc. or its affiliates.  All rights reserved.
+   PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<!--
+This XML file declares which signature|privileged permissions should be granted to privileged
+applications. It allows additional grants on top of privapp-permissions-platform.xml
+and firetv/permissions/privappermissions.
+-->
+<permissions>
+    <privapp-permissions package="com.mediatek.tvinput">
+         <permission name="android.permission.TV_INPUT_HARDWARE"/>
+    </privapp-permissions>
+</permissions>

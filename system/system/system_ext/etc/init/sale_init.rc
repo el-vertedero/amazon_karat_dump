@@ -1,0 +1,9 @@
+service salenativeservice_daemon /system_ext/bin/salenativeservice_daemon
+    class main
+    user system
+    group system sdcard_rw media_rw external_storage
+    oneshot
+    disabled
+
+on post-fs-data
+    mkdir /data/system/AmazonRecommendations 0775 system system

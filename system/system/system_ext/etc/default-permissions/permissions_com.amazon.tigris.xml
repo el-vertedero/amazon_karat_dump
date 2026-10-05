@@ -1,0 +1,16 @@
+<!--
+   Copyright (c) 2024 - 2024 Amazon.com, Inc. or its affiliates.  All rights reserved.
+   PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<!--
+    This file contains dangerous permissions to be granted by default
+    for com.amazon.tigris.
+-->
+
+<exceptions>
+    <exception package="com.amazon.tigris">
+        <!-- Phone State (for Build.getSerial()) -->
+        <permission name="android.permission.READ_PHONE_STATE" fixed="true" />
+        <permission name="android.permission.GET_ACCOUNTS" fixed="true" />
+    </exception>
+</exceptions>

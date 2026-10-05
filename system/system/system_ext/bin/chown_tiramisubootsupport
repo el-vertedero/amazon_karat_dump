@@ -1,0 +1,8 @@
+#!/system/bin/sh
+#
+# Copyright (c) 2023 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+# Use is subject to license terms.
+
+chown -R system:system /data/preloads/file_cache

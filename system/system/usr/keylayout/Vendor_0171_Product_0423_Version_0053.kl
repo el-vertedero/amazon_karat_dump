@@ -1,0 +1,59 @@
+# Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+#
+# BLE Sunflower Aldrin JP 2K Remotes KeyLayout File
+#
+
+key 116   POWER
+key 217   ALEXA
+
+key 96    DPAD_CENTER
+key 103   DPAD_UP
+key 105   DPAD_LEFT
+key 106   DPAD_RIGHT
+key 108   DPAD_DOWN
+
+key 172   HOME
+key 158   BACK
+key 139   MENU
+
+key 168   MEDIA_REWIND
+key 208   MEDIA_FAST_FORWARD
+key 164   MEDIA_PLAY_PAUSE
+
+key 113   VOLUME_MUTE
+key 114   VOLUME_DOWN
+key 115   VOLUME_UP
+
+key 362   LIVE_TV
+key 402   CHANNEL_UP
+key 403   CHANNEL_DOWN
+
+key 633   TV_TERRESTRIAL_DIGITAL
+key 748   TV_SATELLITE_CS
+key 249   TV_SATELLITE_BS
+
+key 2     1
+key 3     2
+key 4     3
+key 5     4
+key 6     5
+key 7     6
+key 8     7
+key 9     8
+key 10    9
+key 11    11
+
+key 370   0 #CAPTIONS #SUBTITLE
+key 358   12 #TV_TELETEXT
+
+
+# App Keys
+key 744   APP_1
+key 745   APP_2
+key 746   SETTINGS
+key 747   TV_DATA_SERVICE
+
+key 398   PROG_BLUE
+key 399   PROG_RED
+key 400   PROG_GREEN
+key 401   PROG_YELLOW

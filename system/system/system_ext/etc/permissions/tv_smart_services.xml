@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (c) 2019 - 2025 Amazon.com, Inc. or its affiliates.  All rights reserved.
+     PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<permissions>
+    <!-- Services in these packages are granted permission to start in the background
+         without binding app. They don't need to show a notification while starting as
+         opposed to standard AOSP behavior
+
+         Packages must be under system/priv-app/
+
+         usage:
+         <allow-in-power-save package="com.amazon.somepackagename"/> -->
+    <allow-in-power-save package="com.amazon.autopairservice"/>
+    <allow-in-power-save package="com.amazon.connectivitycontroller"/>
+    <allow-in-power-save package="com.amazon.connectivity.ca"/>
+    <allow-in-power-save package="com.amazon.uxcontrollerservice"/>
+    <allow-in-power-save package="com.amazon.uxnotification"/>
+    <allow-in-power-save package="com.amazon.device.bluetoothkeymaplib"/>
+    <allow-in-power-save package="com.android.providers.media"/>
+    <allow-in-power-save package="com.amazon.whisperjoin.middleware.np"/>
+    <allow-in-power-save package="com.amazon.whisperjoin.middleware.v2.np"/>
+    <allow-in-power-save package="com.amazon.whisperlink.core.android"/>
+    <allow-in-power-save package="com.amazon.whisperplay.service.install"/>
+    <allow-in-power-save package="com.amazon.awvflingreceiver"/>
+    <allow-in-power-save package="com.amazon.device.rdmapplication" />
+    <allow-in-power-save package="com.amazon.auracastmanager"/>
+</permissions>

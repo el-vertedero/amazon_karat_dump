@@ -1,0 +1,4 @@
+<permissions>
+     <library name="com.amazon.tv.developer.sdk.personalization" file="/system_ext/framework/com.amazon.tv.developer.sdk.personalization.jar"/>
+     <feature name="com.amazon.tv.developer.sdk.personalization" version="1" />
+</permissions>

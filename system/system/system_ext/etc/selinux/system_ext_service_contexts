@@ -1,0 +1,445 @@
+#line 1 "fireos/base/core/sepolicy/service_contexts"
+#
+# Copyright (c) 2018 - 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+fosdebug                                  u:object_r:fosdebug_service:s0
+
+#line 1 "fireos/base/features/Accessibility/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazonaccessibilitymanager                       u:object_r:amazonaccessibilitymanager_service:s0
+
+#line 1 "fireos/base/features/AmazonActivityManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazonactivitymanager                              u:object_r:amazonactivitymanager_service:s0
+
+#line 1 "fireos/base/features/AmazonAdep/sepolicy/service_contexts"
+#
+# Copyright (c) 2023 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+abusedetection                              u:object_r:abusedetectionservice:s0
+
+#line 1 "fireos/base/features/AmazonDevicePolicyManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazondevicepolicymanager                              u:object_r:amazondevicepolicymanager_service:s0
+
+#line 1 "fireos/base/features/AmazonDropBoxManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazondropbox                             u:object_r:amazondropbox_service:s0
+
+#line 1 "fireos/base/features/AmazonMediaCodecLogger/sepolicy/service_contexts"
+#
+# Copyright (c) 2020 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazon_media_codec_logger                        u:object_r:mediacodeclogger_service:s0
+amazonmediacodecloggerservice                    u:object_r:amazonmediacodeclogger_service:s0
+
+#line 1 "fireos/base/features/AmazonNetworkManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2020 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+AmazonNetworkService       u:object_r:amazon_network_service:s0
+
+#line 1 "fireos/base/features/AmazonPackageManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazonpackagemanager                                  u:object_r:amazon_package_manager_service:s0
+
+#line 1 "fireos/base/features/AmazonPowerManager/sepolicy/service_contexts"
+# Copyright (c) 2018-2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazonpowermanagerservice                    u:object_r:amazonpowermanagerservice:s0
+
+#line 1 "fireos/base/features/AmazonUserManager/sepolicy/service_contexts"
+# Copyright (c) 2018-2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+amazonusermanagerservice                              u:object_r:amazonusermanager_service:s0
+
+#line 1 "fireos/base/features/AmazonWifiManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+AmazonWifiService       u:object_r:amazon_wifi_service:s0
+
+#line 1 "fireos/base/features/AmazonWindowManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazonwindowmanager                              u:object_r:amazonwindowmanager_service:s0
+
+#line 1 "fireos/base/features/ArcusService/sepolicy/service_contexts"
+#
+# Copyright (c) 2018-2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+arcusservice                              u:object_r:arcus_service:s0
+
+#line 1 "fireos/base/features/CRLSetManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2018-2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+#
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+crlsetmanager                              u:object_r:crl_set_manager_service:s0
+
+#line 1 "fireos/base/features/CrashReporter/sepolicy/service_contexts"
+# Copyright (c) 2022-2023 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+crashreporterservice                    u:object_r:crashreporterservice:s0
+crashdetectorservice                    u:object_r:crashreporterservice:s0
+
+#line 1 "fireos/base/features/DeviceModelInfo/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+devicemodelinfo                              u:object_r:device_model_info:s0
+
+#line 1 "fireos/base/features/HardwareAuth/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 - 2021 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+deviceinfo                                  u:object_r:device_info_service:s0
+fireosdhaservice                            u:object_r:fireosdha_service:s0
+
+#line 1 "fireos/base/features/I18n/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+marketplace                       u:object_r:marketplace_service:s0
+
+#line 1 "fireos/base/features/WifiDiags/sepolicy/service_contexts"
+#
+# Copyright (c) 2021 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+WifiDiagsService                              u:object_r:wifi_diags_service:s0
+
+#line 1 "fireos/base/features/AdvertisingIdManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+AdvertisingIdManagerService                       u:object_r:advertisingidmanager_service:s0
+
+#line 1 "fireos/base/features/AmazonAutoPairService/sepolicy/service_contexts"
+#
+# Copyright (c) 2021 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+AmazonAutoPairService                             u:object_r:amazon_auto_pair_service:s0
+
+#line 1 "fireos/base/features/AmazonMobileAccessory/sepolicy/service_contexts"
+#
+# Copyright (c) 2020 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+AmazonMobileAccessoryService                              u:object_r:amazonama_service:s0
+
+#line 1 "fireos/base/features/AmazonSignalCatcher/sepolicy/service_contexts"
+#
+# Copyright (c) 2021-2022 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazonsignalcatcherservice u:object_r:amazonsignalcatcherservice_service:s0
+
+#line 1 "fireos/base/features/AmazonUsageStats/sepolicy/service_contexts"
+#
+# Copyright (c) 2018 - 2023 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazonusagestatsservice                    u:object_r:amazon_usage_stats:s0
+
+amazonprotometricsservice                  u:object_r:amazon_usage_stats:s0
+
+#line 1 "fireos/base/features/AppstoreApkDropbox/sepolicy/service_contexts"
+#
+# Copyright (c) 2026 Amazon.com, Inc. or its affiliates. All rights reserved.
+# PROPRIETARY/CONFIDENTIAL. USE IS SUBJECT TO LICENSE TERMS.
+#
+
+# Maps binder service name to SELinux type for appstoreapkdropboxd
+appstoreapkdropboxd                               u:object_r:appstoreapkdropbox_service:s0
+
+#line 1 "fireos/base/features/Cirrus/sepolicy/service_contexts"
+#
+# Copyright (c) 2021 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+cirrusservice                u:object_r:cirrus_service:s0
+
+#line 1 "fireos/base/features/Eve/sepolicy/service_contexts"
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+eve                              u:object_r:eve_service:s0
+eve_native                       u:object_r:eve_service:s0
+
+#line 1 "fireos/base/features/FireOSPowerSupport/sepolicy/service_contexts"
+# Copyright (c) 2020 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+fireospowersupportservice                    u:object_r:fireospowersupportservice:s0
+
+#line 1 "fireos/base/features/FireTvDeepLinkHandler/sepolicy/service_contexts"
+#
+# Copyright (c) 2022 Amazon.com, Inc. or its affiliates. All rights reserved.
+# PROPRIETARY/CONFIDENTIAL. USE IS SUBJECT TO LICENSE TERMS.
+#
+firetvdeeplinkhandler                              u:object_r:firetv_deep_link_handler_service:s0
+
+#line 1 "fireos/base/features/FireTvLedManagerV2/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+FireTvLedManagerService                             u:object_r:firetvledmanager_service:s0
+
+#line 1 "fireos/base/features/MouseMode/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+mousemodeservice                             u:object_r:mousemode_service:s0
+
+#line 1 "fireos/prebuilts/middleware/neo/service-coordinator/sepolicy/service_contexts"
+#
+# Copyright (c) 2022 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+neo-service-coordinator u:object_r:neo-service-coordinator_service:s0
+neo-service-coordinator-public u:object_r:neo-service-coordinator-public_service:s0
+neo-service-coordinator-internal u:object_r:neo-service-coordinator-internal_service:s0
+
+#line 1 "fireos/base/features/NotificationAutoHandler/sepolicy/service_contexts"
+#
+# Copyright (c) 2024 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+NotificationAutoHandlerService                              u:object_r:notif_handler_service:s0
+
+#line 1 "fireos/base/features/PackageRecency/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+PackageRecencyFilterConfig                                   u:object_r:packagerecencyfc_service:s0
+
+#line 1 "fireos/base/features/PerfAnimation/sepolicy/service_contexts"
+#
+# Copyright (c) 2025 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+perfanimation                u:object_r:perfanimation_service:s0
+
+#line 1 "fireos/base/features/RuntimePersistent/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+runtimepersistentservice                u:object_r:runtimepersistent_service:s0
+
+#line 1 "fireos/base/features/SDCard/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazonstoragemanagerservice u:object_r:amazon_storagemanager_service:s0
+
+#line 1 "fireos/base/features/ThermalService/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazonthermalservice                              u:object_r:amazonthermalservice_service:s0
+
+#line 1 "fireos/base/features/VoiceInputFramework/sepolicy/service_contexts"
+voiceinputservice                              u:object_r:voice_input_framework:s0
+
+#line 1 "fireos/packages/apps/FireTvNotificationService/sale/native/sepolicy/service_contexts"
+salenativeservice_daemon                 u:object_r:salenativeservice_daemon_service:s0
+
+
+#line 1 "fireos/packages/apps/RDM/RdmApplication/rdmapplication/sepolicy/service_contexts"
+#
+# Copyright (c) 2025 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+# Service name and type
+rdmservice               u:object_r:remotedevicemanager_service:s0
+
+#line 1 "fireos/base/features/AmazonAccessCertificateManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2021 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazonaccesscertificateservice                      u:object_r:amazon_access_certificate_service:s0
+
+#line 1 "fireos/base/features/AmazonAccessoryManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazonaccessoryservice                              u:object_r:amazonaccessoryservice_service:s0
+
+#line 1 "fireos/base/features/AmazonAudioManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazonaudioservice                              u:object_r:amazonaudioservice_service:s0
+
+#line 1 "fireos/base/features/AmazonEmmcConsumer/sepolicy/service_contexts"
+#
+# Copyright (c) 2022 - 2023 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+amazonemmcconsumerservice    u:object_r:amazon_emmc_consumer:s0
+
+#line 1 "fireos/base/features/AmazonHdmiService/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+AmazonHdmiService                              u:object_r:amazonhdmi_service:s0
+
+#line 1 "fireos/base/features/AmazonInputManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 - 2020 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amazon_input                              u:object_r:amazon_input_service:s0
+amazon_keyevent                           u:object_r:amazon_input_service:s0
+
+#line 1 "fireos/base/features/AmazonInputSwitchService/sepolicy/service_contexts"
+amazoninputswitchservice                              u:object_r:amazon_input_switch_service:s0
+
+#line 1 "fireos/base/features/AmazonProfileService/sepolicy/service_contexts"
+amazonprofileservice                              u:object_r:amazon_profile_service:s0
+
+#line 1 "fireos/base/features/GameControllerManager/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+gamecontrollerservice u:object_r:gamecontroller_service:s0
+
+#line 1 "fireos/base/features/IndoorLocalization/sepolicy/fos8/service_contexts"
+com.amazon.server.amazoninloc.InlocManagerService   u:object_r:inloc_service:s0
+InlocManagerService                                 u:object_r:inlocservice_service:s0
+InlocInterfaceService                               u:object_r:inlocinterfaceservice_service:s0
+
+#line 1 "fireos/base/features/NativeAdapterModule/services/rdmmanager/sepolicy/service_contexts"
+# Copyright (c) 2025 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+
+nativeadapterrdmmanager                          u:object_r:nativeadapter_framework:s0
+#line 1 "fireos/base/features/PerfStats/sepolicy/service_contexts"
+#
+# Copyright (c) 2025 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+cpudumpstacktrace           u:object_r:cpudumpstacktrace_service:s0
+
+#line 1 "fireos/base/features/PermissionValidation/sepolicy/service_contexts"
+#
+# Copyright (c) 2023 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+permissionvalidation        u:object_r:permission_validation:s0
+
+#line 1 "fireos/base/features/ThermalEventMonitor/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+thermaleventmonitor                              u:object_r:thermaleventmonitor_service:s0
+
+#line 1 "fireos/base/features/ThermalTemperatureObserver/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+ThermalTemperatureObserverService                             u:object_r:temperatureobserver_service:s0
+
+#line 1 "vendor/amazon/perfstats/sepolicy/service_contexts"
+amazonperfstats u:object_r:perfstatsd_service:s0
+
+#line 1 "fireos/acs/sdk/native_services/sensors_dynamic_persistence/sepolicy/private/service_contexts"
+#
+# Copyright (c) 2026 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+amznsensorsdynamicpersistenced           u:object_r:amzn_sensors_dynamic_persistenced_service:s0
+
+#line 1 "fireos/base/features/AmazonAmbientService/sepolicy/service_contexts"
+# Copyright (c) 2022 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+amazonambientservice                          u:object_r:amazon_ambient_service:s0
+
+#line 1 "fireos/base/features/AmazonWifiDisplayManagerService/sepolicy/service_contexts"
+#
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+AmazonWifiDisplayManagerService                  u:object_r:amazon_wifi_display_manager:s0
+
+#line 1 "fireos/base/features/CloudPairingAgentSystemService/fos/fos8/sepolicy/service_contexts"
+com.amazon.cloudpairing.CloudPairingAgentSystemService u:object_r:cloud_pairing_agent_system_service:s0
+com.amazon.cloudpairing.CloudPairingService u:object_r:cloud_pairing_binder_service:s0
+
+#line 1 "vendor/amazon/perfmonitor/sepolicy/fireos/service_contexts"
+#
+# Copyright (c) 2019 - 2023 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+perfrecoveryd.ipc.service u:object_r:perfmonitord_service:s0
+
+#line 1 "vendor/amazon/perfmonitor/sepolicy/useraware/service_contexts"
+amazonperfmonitor u:object_r:perfmonitord_service:s0
+
+#line 1 "fireos/base/features/FireOSPowerObserver/sepolicy/service_contexts"
+powerobserver                              u:object_r:powerobserver_service:s0
+
+#line 1 "fireos/base/features/AmazonWHA/sepolicy/service_contexts"
+#
+# Copyright (c) 2019-2025 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+
+common_time_wha.clock                         u:object_r:common_time_wha_clock_service:s0
+whad_proxy_servicemanager                     u:object_r:whad_proxy_servicemanager_service:s0
+com.amazon.mrm.neatipc                        u:object_r:com_amazon_mrm_neatipc_service:s0
+com.amazon.fabric.neatipc                     u:object_r:com_amazon_fabric_neatipc_service:s0
+
+#line 1 "vendor/puffin/SmartHome/src/bin/build/ftv/fos/sepolicy/fos8/service_contexts"
+smarthomed                   u:object_r:smarthomed_service:s0
+

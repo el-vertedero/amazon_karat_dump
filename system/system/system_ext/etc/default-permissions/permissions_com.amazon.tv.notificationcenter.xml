@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright (c) 2023 - 2026 Amazon.com, Inc. or its affiliates.  All rights reserved.
+   PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<!--
+    This file contains dangerous permissions to be granted by default
+    for com.amazon.tv.notificationcenter.
+-->
+
+<exceptions>
+    <exception package="com.amazon.tv.notificationcenter">
+        <permission name="android.permission.READ_PHONE_STATE" fixed="true"/>
+        <permission name="android.permission.READ_EXTERNAL_STORAGE" fixed="true"/>
+	<permission name="android.permission.GET_ACCOUNTS" fixed="true"/>
+	<permission name="android.permission.MANAGE_EXTERNAL_STORAGE" fixed="true"/>
+    </exception>
+</exceptions>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+<library name="com.fireos.sdk.ad_manager" file="/system_ext/framework/com.amazon.ad_manager.sdk.jar" dependency="com.fireos.sdk.mapclientlib:com.fireos.sdk.metrics:com.fireos.sdk.ceviche:com.fireos.sdk.minerva:com.fireos.sdk.naatyamlib:com.fireos.sdk.device_remote_config_sync:com.fireos.sdk.neo"/>
+<feature name="com.fireos.sdk.ad_manager" version="4"/>
+</permissions>

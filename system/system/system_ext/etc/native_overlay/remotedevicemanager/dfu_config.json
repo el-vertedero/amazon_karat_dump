@@ -1,0 +1,200 @@
+{
+    "devices": [
+        {
+            "pid": "0x0412",
+            "vid": "0x0171",
+            "version": 49,
+            "fileName": "firmware_0x0412_49.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0413",
+            "vid": "0x0171",
+            "version": 140,
+            "fileName": "firmware_0x0413_140.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0415",
+            "vid": "0x0171",
+            "version": 10,
+            "fileName": "firmware_0x0415_10.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0414",
+            "vid": "0x0171",
+            "version": 36,
+            "fileName": "firmware_0x0414_0x0418_36.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0418",
+            "vid": "0x0171",
+            "version": 36,
+            "fileName": "firmware_0x0414_0x0418_36.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x041C",
+            "vid": "0x0171",
+            "version": 16,
+            "fileName": "firmware_0x041c_16.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x041E",
+            "vid": "0x0171",
+            "version": 15,
+            "fileName": "firmware_0x041e_15.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x041F",
+            "vid": "0x0171",
+            "version": 31,
+            "fileName": "firmware_0x041f_31.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0420",
+            "vid": "0x0171",
+            "version": 14,
+            "fileName": "firmware_0x0420_14.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0421",
+            "vid": "0x0171",
+            "version": 42,
+            "fileName": "firmware_0x0421_42.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0423",
+            "vid": "0x0171",
+            "version": 26,
+            "fileName": "firmware_0x0423_0x0424_26.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0424",
+            "vid": "0x0171",
+            "version": 26,
+            "fileName": "firmware_0x0423_0x0424_26.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0425",
+            "vid": "0x0171",
+            "version": 39,
+            "fileName": "firmware_0x0425_39.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0426",
+            "vid": "0x0171",
+            "version": 26,
+            "fileName": "firmware_rdk1_0_26.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0427",
+            "vid": "0x0171",
+            "version": 12,
+            "fileName": "firmware_0x0427_12.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0428",
+            "vid": "0x0171",
+            "version": 26,
+            "fileName": "firmware_rdk1_0_26.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x042A",
+            "vid": "0x0171",
+            "version": 26,
+            "fileName": "firmware_rdk1_0_26.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x042C",
+            "vid": "0x0171",
+            "version": 18,
+            "fileName": "firmware_0x042C_18.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x042F",
+            "vid": "0x0171",
+            "version": 55,
+            "fileName": "firmware_0x042f_55.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0431",
+            "vid": "0x0171",
+            "version": 31,
+            "fileName": "firmware_0x0431_31.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0432",
+            "vid": "0x0171",
+            "version": 26,
+            "fileName": "firmware_rdk1_0_26.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0433",
+            "vid": "0x0171",
+            "version": 8,
+            "fileName": "firmware_0x0433_8.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0435",
+            "vid": "0x0171",
+            "version": 5,
+            "fileName": "firmware_0x0435_5.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x0436",
+            "vid": "0x0171",
+            "version": 4,
+            "fileName": "firmware_0x0436_4.bin",
+            "type": 0
+        },
+        {
+            "pid": "0x043E",
+            "vid": "0x0171",
+            "version": 37,
+            "fileName": "firmware_0x043e_37.bin",
+            "type":0
+        },
+        {
+            "pid": "0x043F",
+            "vid": "0x0171",
+            "version": 34,
+            "fileName": "firmware_0x043f_34.bin",
+            "type":0
+        },
+        {
+            "pid": "0x0444",
+            "vid": "0x0171",
+            "version": 10,
+            "fileName": "firmware_0x0444_10.bin",
+            "type":0
+        },
+        {
+            "pid": "0x0445",
+            "vid": "0x0171",
+            "version": 141,
+            "fileName": "firmware_0x0445_141.bin",
+            "type":0
+        }
+    ]
+}

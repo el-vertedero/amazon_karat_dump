@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<!--
+    This file contains permissions to be granted by default to the ADEP app.
+-->
+<exceptions>
+    <exception package="com.amazon.adep">
+        <permission name="android.permission.SYSTEM_ALERT_WINDOW" fixed="true" />
+        <permission name="android.permission.INTERACT_ACROSS_USERS" fixed="true" />
+    </exception>
+</exceptions>

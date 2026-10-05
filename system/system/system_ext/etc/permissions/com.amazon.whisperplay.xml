@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <library name="com.amazon.whisperplay" file="/system_ext/priv-app/WhisperlinkSdk/WhisperlinkSdk.apk" dependency="com.amazon.dp.logger_lib:com.fireos.sdk.metrics:com.fireos.sdk.tcomm:com.fireos.sdk.mapclientlib"/>
+</permissions>

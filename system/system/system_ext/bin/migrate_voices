@@ -1,0 +1,16 @@
+#!/system/bin/sh
+
+mkdir -p /data/system/com.ivona.tts.oem/tts/ivona
+
+# Migrate voices from /data/misc_ne to /data/system
+for f in /data/misc_ne/com.ivona.tts.oem/tts/ivona/*; do
+    /system/bin/cp -r ${f} /data/system/com.ivona.tts.oem/tts/ivona
+    /system/bin/rm -rf ${f}
+done
+
+# Restore SE-linux contexts for just migrated files
+restorecon -R /data/system/com.ivona.tts.oem
+chown -R system:system /data/system/com.ivona.tts.oem
+
+# Clean /data/misc_ne from already empty directories
+rm -rf /data/misc_ne/com.ivona.tts.oem

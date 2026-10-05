@@ -1,0 +1,140 @@
+{
+    "devices": [
+        {
+            "pid": "0x043c",
+            "vid": "0x0171",
+            "imageNo": 1,
+            "version": 12,
+            "fileName": "fw_0x043c_p1_12.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x043c",
+            "vid": "0x0171",
+            "imageNo": 2,
+            "version": 2,
+            "fileName": "fw_0x043c_p2_2.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x043c",
+            "vid": "0x0171",
+            "imageNo": 3,
+            "version": 4,
+            "fileName": "fw_0x043c_p3_4.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x043c",
+            "vid": "0x0171",
+            "imageNo": 4,
+            "version": 67,
+            "fileName": "fw_0x043c_p4_67.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x0440",
+            "vid": "0x0171",
+            "imageNo": 1,
+            "version": 49,
+            "fileName": "fw_0x0440_p1_app_049.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x0440",
+            "vid": "0x0171",
+            "imageNo": 2,
+            "version": 193,
+            "fileName": "fw_0x0440_p2_rom_193.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x0440",
+            "vid": "0x0171",
+            "imageNo": 3,
+            "version": 6,
+            "fileName": "fw_0x0440_p3_sbl_6.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x0440",
+            "vid": "0x0171",
+            "imageNo": 4,
+            "version": 70,
+            "fileName": "fw_0x0440_p4_stk_70.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x0440",
+            "vid": "0x0171",
+            "imageNo": 5,
+            "version": 101,
+            "fileName": "fw_0x0440_p5_aon_101.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x0442",
+            "vid": "0x0171",
+            "imageNo": 1,
+            "version": 4,
+            "fileName": "fw_0x0442_p1_4.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x0442",
+            "vid": "0x0171",
+            "imageNo": 2,
+            "version": 2,
+            "fileName": "fw_0x0442_p2_2.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x0442",
+            "vid": "0x0171",
+            "imageNo": 3,
+            "version": 4,
+            "fileName": "fw_0x0442_p3_4.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x0442",
+            "vid": "0x0171",
+            "imageNo": 4,
+            "version": 67,
+            "fileName": "fw_0x0442_p4_67.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x0446",
+            "vid": "0x0171",
+            "imageNo": 1,
+            "version": 8,
+            "fileName": "fw_0x0446_p1_8.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x0446",
+            "vid": "0x0171",
+            "imageNo": 2,
+            "version": 2,
+            "fileName": "fw_0x0446_p2_2.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x0446",
+            "vid": "0x0171",
+            "imageNo": 3,
+            "version": 5,
+            "fileName": "fw_0x0446_p3_5.bin",
+            "type": 2
+        },
+        {
+            "pid": "0x0446",
+            "vid": "0x0171",
+            "imageNo": 4,
+            "version": 68,
+            "fileName": "fw_0x0446_p4_68.bin",
+            "type": 2
+        }
+    ]
+}

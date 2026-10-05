@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+   Copyright (c) 2022 - 2025 Amazon.com, Inc. or its affiliates.  All rights reserved.
+   PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+-->
+<permissions>
+     <library name="com.amazon.tv.developer.sdk.cwlm" file="/system_ext/framework/com.amazon.tv.developer.sdk.cwlm.jar"/> 
+     <feature name="com.amazon.tv.developer.sdk.cwlm" version="2" />
+</permissions>

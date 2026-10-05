@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+<library name="com.fireos.sdk.amazon_system_notices_manager" file="/system_ext/framework/AmazonSystemNoticesManager.jar" />
+<feature name="com.fireos.sdk.amazon_system_notices_manager" version="1"/>
+</permissions>

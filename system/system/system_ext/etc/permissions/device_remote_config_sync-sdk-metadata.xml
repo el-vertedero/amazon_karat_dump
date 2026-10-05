@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+<library name="com.fireos.sdk.device_remote_config_sync" file="/system_ext/framework/com.amazon.device_remote_config_sync.jar" dependency="com.fireos.sdk.neo"/>
+<feature name="com.fireos.sdk.device_remote_config_sync" version="3"/>
+</permissions>
