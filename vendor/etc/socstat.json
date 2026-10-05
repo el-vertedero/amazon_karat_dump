@@ -1,0 +1,54 @@
+{
+  "model_name": "Karat",
+  "devfreq_devices": [
+    {
+      "name": "GPU",
+      "path": "/sys/class/devfreq/13000000.gpu"
+    }
+  ],
+  "hwmon_sensors": [
+    {
+      "name": "INA231",
+      "type": "power",
+      "path": "/sys/class/hwmon/hwmon3/power1_input"
+    },
+    {
+      "name": "soc_temp",
+      "type": "temp",
+      "path": "/sys/class/hwmon/hwmon4/temp1_input"
+    }
+  ],
+  "cycles_to_bytes": 1,
+  "pmu_devices": [
+    {
+      "path": "/sys/devices/arm_dsu_0",
+      "display_name": "arm_dsu_0",
+      "pmu_events": [
+        {
+          "event": "l3d_cache",
+          "name": "l3d_cache",
+          "convert_to_mb": false,
+          "max_value": 50000000
+        },
+        {
+          "event": "l3d_cache_allocate",
+          "name": "l3d_alloc",
+          "convert_to_mb": false,
+          "max_value": 50000000
+        },
+        {
+          "event": "l3d_cache_refill",
+          "name": "l3d_refill",
+          "convert_to_mb": false,
+          "max_value": 50000000
+        },
+        {
+          "event": "l3d_cache_wb",
+          "name": "l3d_wb",
+          "convert_to_mb": false,
+          "max_value": 50000000
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+#
+# Copyright (c) 2024-2026 Amazon.com, Inc. or its affiliates.  All rights reserved.
+#
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+# Metatag(enhancements.wifi) newfile
+
+on post-fs-data
+    mkdir /data/vendor/wifi 0770 wifi wifi
+    mkdir /data/vendor/wifi/hostapd 0770 wifi wifi
+    mkdir /data/vendor/wifi/hostapd/sockets 0770 wifi wifi
+
+service hostapd /vendor/bin/hw/hostapd
+    interface android.hardware.wifi.hostapd@1.0::IHostapd default
+    interface android.hardware.wifi.hostapd@1.1::IHostapd default
+    interface android.hardware.wifi.hostapd@1.2::IHostapd default
+    interface fireos.hardware.connectivity@1.0::IHostapdController default
+    interface fireos.hardware.connectivity@1.0::IHostapdEvent default
+    class main
+    capabilities NET_ADMIN NET_RAW
+    user wifi
+    group wifi net_raw net_admin
+    disabled
+    oneshot

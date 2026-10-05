@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SCNTABLE>
+    <scenario powerhint="LAUNCH">
+        <data cmd="PERF_RES_CPUFREQ_MIN_CLUSTER_0" param1="3000000"></data>
+    </scenario>
+    <scenario powerhint="INTERACTION">
+        <data cmd="PERF_RES_CPUFREQ_MIN_CLUSTER_0" param1="3000000"></data>
+    </scenario>
+</SCNTABLE>

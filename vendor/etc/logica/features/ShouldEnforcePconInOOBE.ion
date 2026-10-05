@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2023 - 2025 Amazon.com, Inc. or its affiliates.  All rights reserved.
+ *
+ * PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+ */
+{
+  feature_id: "ShouldEnforcePconInOOBE",
+  fallback_value: false,
+  options: [
+    {
+      when_all: [
+        { in: ["countryCode", "IT", "HU", "RO", "FR", "AT", "BE", "HR", "PL", "PT", "BE", "ES"] },
+      ],
+      return_value: true
+    }
+  ]
+}

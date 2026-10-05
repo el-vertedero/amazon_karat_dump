@@ -1,0 +1,13 @@
+{
+  feature_id: "ShouldShowPconSwitchInteractionDisallowedByOperatorMessage",
+  fallback_value: false,
+  options: [
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+        { is: ["operator", "FRANSAT"] }
+      ],
+      return_value: true
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  feature_id: "IsClosedCaptionsHardOfHearingAvailable",
+  fallback_value: false,
+  options: [
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+      ],
+      return_value: true
+    }
+  ]
+}

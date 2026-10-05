@@ -1,0 +1,18 @@
+{
+  /*
+  * 0 = Home
+  * 1 = Last Input
+  * 2 = No action needed
+  */
+  feature_id: "PowerONDefaultValue",
+  fallback_value: 2,
+  options: [
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+        { is: ["operator", "ZIGGO"] },
+      ],
+      return_value: 1
+    }
+  ]
+}

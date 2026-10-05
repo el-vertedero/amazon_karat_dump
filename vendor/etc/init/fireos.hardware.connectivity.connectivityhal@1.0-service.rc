@@ -1,0 +1,11 @@
+#
+# Copyright (c) 2023 Amazon.com, Inc. or its affiliates.  All rights reserved.
+#
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+service connectivityhal-1.0 /vendor/bin/hw/fireos.hardware.connectivity.connectivityhal@1.0-service
+    class hal
+    capabilities NET_ADMIN
+    user  system
+    group inet

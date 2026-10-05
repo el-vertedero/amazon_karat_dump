@@ -1,0 +1,14 @@
+{
+  feature_id: "SampleFeature",
+  fallback_value: false,
+  options: [
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+        { is: ["countryCode", "FR"] },
+        { is: ["operator", "Fransat"] }
+      ],
+      return_value: true
+    }
+  ]
+}

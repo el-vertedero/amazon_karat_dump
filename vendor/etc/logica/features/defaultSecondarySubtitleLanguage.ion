@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2024 Amazon.com, Inc. or its affiliates.  All rights reserved.
+ * PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+ */
+{
+  feature_id: "defaultSecondarySubtitleLanguage",
+  fallback_value: null,
+  options: [
+    {
+      when_all: [
+        { in: ["countryCode", "DK", "FI", "SE", "NO", "IE", "FR", "DE", "NL", "ES", "IT",
+               "PL", "AT", "BE", "CH", "HR", "CZ", "RO", "PT", "SK", "RS", "HU", "LU"] }
+      ],
+      return_value: "en"
+    }
+  ]
+}

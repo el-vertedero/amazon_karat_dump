@@ -1,0 +1,9 @@
+service bridged /vendor/bin/bridged
+    interface fireos.hardware.connectivity@1.0::IBridgedController default
+    class main
+    capabilities NET_ADMIN NET_RAW
+    user wifi
+    group wifi net_raw net_admin
+    disabled
+    oneshot
+

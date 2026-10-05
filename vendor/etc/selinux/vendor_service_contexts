@@ -1,0 +1,17 @@
+#line 1 "fireos/base/features/DynamicWarmingService/sepolicy/service_contexts"
+# Copyright (c) 2019 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+dynamicwarmingservice                              u:object_r:dynamic_warming_service:s0
+
+#line 1 "device/amazon/common/sepolicy/amazon_hal/service_contexts"
+#
+# Copyright (c) 2024 Amazon.com, Inc. or its affiliates.  All rights reserved.
+# PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+#
+
+fireos.hardware.copycontrol.ICopyControl/default    u:object_r:amzn_hal_copycontrol_service:s0
+
+#line 1 "system/sepolicy/reqd_mask/service_contexts"
+# empty service_contexts file - this file is used to generate an empty
+# non-platform service_context for devices without any service_contexts
+# customizations.

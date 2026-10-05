@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) 2023 - 2024 Amazon.com, Inc. or its affiliates.  All rights reserved.
+ *
+ * PROPRIETARY/CONFIDENTIAL.  USE IS SUBJECT TO LICENSE TERMS.
+ */
+{
+   /*
+    * 0 = OFF.
+    * 1 = ON.
+    * 2 = No default value.
+    */
+  feature_id: "ClosedCaptionDefaultValue",
+  fallback_value: 2,
+  options: [
+    {
+     when_all: [
+       { in: ["countryCode", "IE", "NO", "DK", "SE", "FI", "RO"] }
+     ],
+     return_value: 1
+    },
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+        { in: ["operator", "ZIGGO", "canal_digital", "STOFA", "YOUSEE", "COMHEM", "CABLE_HD" ,
+               "ANTENNA_HD" , "RIKS_TV", "UPC"] },
+      ],
+      return_value: 1
+    }
+  ]
+}

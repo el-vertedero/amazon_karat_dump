@@ -1,0 +1,13 @@
+{
+  feature_id: "ShowTimeZoneChangeDisallowedByOperatorMessage",
+  fallback_value: false,
+  options: [
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+        { is: ["operator", "ZIGGO"] },
+      ],
+      return_value: true
+    }
+  ]
+}

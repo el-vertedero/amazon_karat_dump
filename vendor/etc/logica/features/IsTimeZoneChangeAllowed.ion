@@ -1,0 +1,19 @@
+{
+  feature_id: "IsTimeZoneChangeAllowed",
+  fallback_value: true,
+  options: [
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+        { is: ["operator", "ZIGGO"] },
+      ],
+      return_value: false
+    },
+    {
+      when_all: [
+        { in: ["countryCode", "AT", "CH", "RO", "HU", "PL", "IE", "NL"] },
+      ],
+      return_value: false
+    }
+  ]
+}

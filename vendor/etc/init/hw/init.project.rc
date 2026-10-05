@@ -1,0 +1,140 @@
+# MTK project .rc configure
+
+import init.whad_cc.rc
+
+on init
+    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+    mkdir /storage/usbotg 0700 root root
+    write /sys/module/musb_hdrc/parameters/mu3d_force_on 1
+    insmod /vendor/lib/modules/wlan_mt79x1_sdio_prealloc.ko
+
+on early-boot
+    start usb_cp_type
+
+on post-fs
+    write /sys/module/dm_bufio/parameters/max_cache_size_bytes 18481152
+
+on post-fs-data
+# Update the dm-verity state to partition.*.verified properties
+    verity_update_state
+
+#Camera
+    chmod 0660 /dev/MAINAF
+    chown system camera /dev/MAINAF
+
+    chmod 0660 /dev/MAINAF2
+    chown system camera /dev/MAINAF2
+
+    chmod 0660 /dev/SUBAF
+    chown system camera /dev/SUBAF
+
+    chmod 0660 /dev/GAF001AF
+    chown system camera /dev/GAF001AF
+
+    chmod 0660 /dev/DW9714AF
+    chown system camera /dev/DW9714AF
+
+    chmod 0660 /dev/LC898212AF
+    chown system camera /dev/LC898212AF
+
+    chmod 0660 /dev/BU64745GWZAF
+    chown system camera /dev/BU64745GWZAF
+
+    chmod 0660 /dev/mtk_ccd
+    chown system camera /dev/mtk_ccd
+
+#SMB
+    chown system system /proc/smb/ScreenComm
+    chmod 0660 /proc/smb/ScreenComm
+
+    chmod 0660 /dev/spm
+    chown system system /dev/spm
+
+# WiFi
+    mkdir /data/vendor/wifi 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa 0770 wifi wifi
+    mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
+
+    #give system access to rfkill device node
+    chmod 0660 /dev/rfkill
+
+    # from init.modem.rc
+    setprop vold.post_fs_data_done 1
+
+on boot
+    insmod /vendor/lib/modules/btmtk_sdio_79x1.ko
+    write /proc/sys/vm/watermark_boost_factor 0
+
+#INA231 power monitor
+    chown system system /sys/class/hwmon/hwmon3/power1_input
+    chown system system /sys/class/hwmon/hwmon3/update_interval
+    chown system system /sys/class/hwmon/hwmon3/shunt_resistor
+
+on init
+    # Refer to http://source.android.com/devices/tech/storage/index.html
+    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
+    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
+    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
+    #           Developers expect data stored in these locations to be available over long periods of time."
+    # Therefore, if the target doesn't support sd hot-plugging (Ex: the SD card slot in a battery compartment), we need to export SECONDARY_STORAGE in 'boot' section
+    #
+    # export SECONDARY_STORAGE /storage/sdcard1
+    # Disable suspend
+    write /sys/power/wake_lock disablesuspend
+
+    export DOWNLOAD_CACHE /cache
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+    class late_start
+    disabled
+
+# query USB charge port type service
+service usb_cp_type /system/bin/amzn_usb_cp_type.sh
+    disabled
+    user root
+    oneshot
+
+service amzn_drmprov_check /vendor/bin/amzn_drmprov_check
+	class main
+	user root
+	group system drmrpc
+	oneshot
+	disabled
+
+service dha_self_test /vendor/bin/amzn_dha_self_test.sh
+	user keystore
+	group keystore drmrpc readproc system
+	oneshot
+	disabled
+
+on property:init.svc.amzn_drmprov_check=stopped
+    start dha_self_test
+
+on property:sys.boot_completed=1
+    start amzn_drmprov_check
+
+on property:vendor.amazon.fos_flags.wipe=1
+    setprop persist.sys.usb.config mtp
+
+# Model name
+on early-init && property:ro.boot.hardware.sku=karat
+    setprop ro.vendor.product.model_trigger AFTKRT
+
+on early-init && property:ro.boot.hardware.sku=mantra && property:ro.boot.hardware.is_plus=0
+    setprop ro.vendor.product.model_trigger AFTKM
+
+on early-init && property:ro.boot.hardware.sku=mantra && property:ro.boot.hardware.is_plus=1
+    setprop ro.vendor.product.model_trigger AFTMA08C15
+
+on early-init && property:ro.boot.hardware.sku=kara
+    setprop ro.vendor.product.model_trigger AFTKA
+
+# The following change requires that the corresponding change be made in the
+# device's system.prop file, and is required because "ip_local_reserved_ports"
+# is too long. Additional ephemeral port reservations should be added to the
+# ip_loc_res_ports var in the system.prop
+on property:vendor.sysctl.ip_loc_res_ports=*
+    write /proc/sys/net/ipv4/ip_local_reserved_ports ${vendor.sysctl.ip_loc_res_ports}
+
+# Import perfmonitord
+import init.perfmonitord_fos8.rc
+

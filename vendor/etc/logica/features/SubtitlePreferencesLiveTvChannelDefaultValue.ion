@@ -1,0 +1,25 @@
+{
+  /*
+  * -1 = Feature is not available.
+  * 0 = OFF.
+  * 1 = ON.
+  * 2 = No default value.
+  */
+  feature_id: "SubtitlePreferencesLiveTvChannelDefaultValue",
+  fallback_value: -1,
+  options: [
+    {
+      when_all: [
+        { is: ["region", "EU"] },
+        { is: ["operator", "ZIGGO"] },
+      ],
+      return_value: 1
+    },
+    {
+      when_all: [
+        { is: ["region", "EU"] }
+      ],
+      return_value: 2
+    }
+  ]
+}
